@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+.env.*
+
+Ai automation landing page/
+Development landing page/

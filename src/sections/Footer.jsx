@@ -1,0 +1,112 @@
+import React, { useState } from 'react';
+import { Facebook, Instagram, Youtube, Linkedin, Mail, Phone, ArrowUpRight } from 'lucide-react';
+import logo from '../assets/Digiicare.png';
+import ServiceModal from '../components/ServiceModal';
+import { servicesData } from '../data/services';
+import { handleScrollTo } from '../utils/scrollTo';
+
+const Footer = () => {
+  const [selectedService, setSelectedService] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openService = (service) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
+
+  const socialLinks = [
+    { icon: <Facebook size={20} />, href: "https://www.facebook.com/digicarehouseagency" },
+    { icon: <Instagram size={20} />, href: "https://www.instagram.com/digicarehouseagency/" },
+    { icon: <Youtube size={20} />, href: "https://www.youtube.com/@digicarehouseagency" },
+    { icon: <Linkedin size={20} />, href: "http://linkedin.com/company/digicarehouseagency" },
+  ];
+
+  return (
+    <footer className="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-light border-t border-black/5 dark:border-white/5 pt-20 pb-12 overflow-hidden min-h-screen flex items-center">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20 border-b border-black/5 dark:border-white/5 pb-20">
+          <div className="max-w-md w-full">
+            <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="flex items-center gap-3 group mb-10 h-16">
+              <img src={logo} alt="Digicare Design" className="h-full w-auto object-contain transition-transform group-hover:scale-105" />
+            </a>
+            <p className="text-xl font-light dark:text-gray-400 text-slate-600 leading-relaxed mb-10 tracking-tight">
+              An elite UI/UX & Brand Development collective. We map user chaos into stunning digital order.
+            </p>
+            <div className="flex gap-4">
+              {socialLinks.map((s, i) => (
+                <a
+                  key={i}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full border border-black/10 dark:border-white/10 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-500"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[minmax(0,1.5fr)_minmax(0,.8fr)_minmax(0,1fr)] gap-12 w-full lg:w-auto">
+            <div className="min-w-0">
+              <h4 className="dark:text-white/70 text-slate-950/70 font-black uppercase text-xs tracking-widest mb-10">Services</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-5 text-sm font-light">
+                {servicesData.map((s, i) => (
+                  <li key={i}>
+                    <button onClick={() => openService(s)} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors text-left uppercase font-bold tracking-tight hover:tracking-[0.18em] duration-500 leading-tight">
+                      {s.title}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="dark:text-white/70 text-slate-950/70 font-black uppercase text-xs tracking-widest mb-10">Agency</h4>
+              <ul className="flex flex-col gap-6 text-sm font-light">
+                <li><a href="#services" onClick={(e) => handleScrollTo(e, '#services')} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors uppercase font-bold tracking-tighter hover:tracking-widest duration-500">Our Experiments</a></li>
+                <li><a href="#process" onClick={(e) => handleScrollTo(e, '#process')} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors uppercase font-bold tracking-tighter hover:tracking-widest duration-500">Methodology</a></li>
+                <li><a href="#work" onClick={(e) => handleScrollTo(e, '#work')} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors uppercase font-bold tracking-tighter hover:tracking-widest duration-500">Case Studies</a></li>
+                <li><a href="#pricing" onClick={(e) => handleScrollTo(e, '#pricing')} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors uppercase font-bold tracking-tighter hover:tracking-widest duration-500">Investments</a></li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-2 xl:col-span-1">
+              <h4 className="dark:text-white/70 text-slate-950/70 font-black uppercase text-xs tracking-widest mb-10">Agency Info</h4>
+              <p className="font-light text-slate-600 dark:text-gray-400 text-lg mb-8 leading-relaxed italic">
+                1839 Flatbush Ave, <br />
+                Brooklyn, NY 11210
+              </p>
+              <div className="flex flex-col gap-4">
+                <a href="mailto:info@digicarehouse.com" className="flex items-center gap-2 group text-primary font-bold">
+                  <Mail size={16} /> info@digicarehouse.com
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+                <a href="tel:+18483843773" className="flex items-center gap-2 group text-primary font-bold">
+                  <Phone size={16} /> +1 (848) 384 3773
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs font-black tracking-widest uppercase text-slate-500 dark:text-slate-500">
+          <p>&copy; {new Date().getFullYear()} Digicare Design Agency.</p>
+          <div className="flex gap-10 mt-6 md:mt-0">
+            <a href="#" className="hover:text-primary transition-colors">Digital Privacy</a>
+            <a href="#" className="hover:text-primary transition-colors">Client Terms</a>
+          </div>
+        </div>
+      </div>
+
+      <ServiceModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        service={selectedService}
+      />
+    </footer>
+  );
+};
+
+export default Footer;
