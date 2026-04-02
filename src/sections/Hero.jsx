@@ -115,7 +115,7 @@ const Hero = () => {
         <div className="hero-shape shape-cross top-[45%] left-[25%]"></div>
       </div>
 
-      <div className="container mx-auto grid w-full grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-12 z-10">
+      <div className="container mx-auto grid w-full grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-12 lg:gap-10 xl:gap-12 z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -136,7 +136,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-6 max-w-full text-[2.95rem] font-black tracking-tight uppercase leading-[0.92] sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-8xl"
+            className="mb-6 max-w-full text-[2.95rem] font-black tracking-tight uppercase leading-[0.92] sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[6.8rem] xl:text-8xl"
           >
             <span className="block text-slate-950 dark:text-white">Crafting</span>
             <span className="block text-gradient break-words">Artistic Brand</span>
@@ -149,7 +149,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="mb-8 max-w-xl text-base font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 sm:mb-10 sm:text-lg md:text-xl"
+            className="mb-8 max-w-xl lg:max-w-[34rem] xl:max-w-xl text-base font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 sm:mb-10 sm:text-lg md:text-xl"
           >
             We&apos;re a high-end design collective obsessed with sculpting premium visual journeys, stunning digital art, and brand systems that wowed.
           </motion.p>
