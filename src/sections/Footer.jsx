@@ -53,7 +53,7 @@ const Footer = () => {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-5 text-sm font-light">
                 {servicesData.map((s, i) => (
                   <li key={i}>
-                    <button onClick={() => openService(s)} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors text-left uppercase font-bold tracking-tight hover:tracking-[0.18em] duration-500 leading-tight">
+                    <button onClick={() => openService(s)} className="inline-flex max-w-full text-slate-800 dark:text-slate-300 hover:text-primary transition-all text-left uppercase font-bold tracking-tight duration-300 leading-tight hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">
                       {s.title}
                     </button>
                   </li>
@@ -64,10 +64,10 @@ const Footer = () => {
             <div>
               <h4 className="dark:text-white/70 text-slate-950/70 font-black uppercase text-xs tracking-widest mb-10">Agency</h4>
               <ul className="flex flex-col gap-6 text-sm font-light">
-                <li><a href="#services" onClick={(e) => handleScrollTo(e, '#services')} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors uppercase font-bold tracking-tighter hover:tracking-widest duration-500">Our Experiments</a></li>
-                <li><a href="#process" onClick={(e) => handleScrollTo(e, '#process')} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors uppercase font-bold tracking-tighter hover:tracking-widest duration-500">Methodology</a></li>
-                <li><a href="#work" onClick={(e) => handleScrollTo(e, '#work')} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors uppercase font-bold tracking-tighter hover:tracking-widest duration-500">Case Studies</a></li>
-                <li><a href="#pricing" onClick={(e) => handleScrollTo(e, '#pricing')} className="text-slate-800 dark:text-slate-300 hover:text-primary transition-colors uppercase font-bold tracking-tighter hover:tracking-widest duration-500">Investments</a></li>
+                <li><a href="#services" onClick={(e) => handleScrollTo(e, '#services')} className="inline-flex max-w-full text-slate-800 dark:text-slate-300 hover:text-primary transition-all uppercase font-bold tracking-tighter duration-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Our Experiments</a></li>
+                <li><a href="#process" onClick={(e) => handleScrollTo(e, '#process')} className="inline-flex max-w-full text-slate-800 dark:text-slate-300 hover:text-primary transition-all uppercase font-bold tracking-tighter duration-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Methodology</a></li>
+                <li><a href="#work" onClick={(e) => handleScrollTo(e, '#work')} className="inline-flex max-w-full text-slate-800 dark:text-slate-300 hover:text-primary transition-all uppercase font-bold tracking-tighter duration-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Case Studies</a></li>
+                <li><a href="#pricing" onClick={(e) => handleScrollTo(e, '#pricing')} className="inline-flex max-w-full text-slate-800 dark:text-slate-300 hover:text-primary transition-all uppercase font-bold tracking-tighter duration-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Investments</a></li>
               </ul>
             </div>
 

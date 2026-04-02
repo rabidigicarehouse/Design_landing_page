@@ -29,6 +29,26 @@ body {
   box-sizing: border-box;
 }
 
+::selection {
+  background: rgba(124, 58, 237, 0.26);
+  color: #0f172a;
+}
+
+::-moz-selection {
+  background: rgba(124, 58, 237, 0.26);
+  color: #0f172a;
+}
+
+.dark ::selection {
+  background: rgba(167, 139, 250, 0.34);
+  color: #ffffff;
+}
+
+.dark ::-moz-selection {
+  background: rgba(167, 139, 250, 0.34);
+  color: #ffffff;
+}
+
 .panel-shell {
   width: 100%;
 }
