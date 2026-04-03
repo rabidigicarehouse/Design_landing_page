@@ -4,6 +4,16 @@ import { ArrowRight, Sparkles, Send, Loader2, CheckCircle2, AlertCircle } from '
 import ReCAPTCHA from 'react-google-recaptcha';
 import Button from '../components/Button';
 import { handleScrollTo } from '../utils/scrollTo';
+import heroVideo from '../assets/Animated_gif/hero.mp4';
+
+const sanitizePhone = (value) => {
+  const cleaned = value.replace(/[^\d+]/g, '');
+  if (!cleaned) return '';
+  if (cleaned.startsWith('+')) {
+    return `+${cleaned.slice(1).replace(/\+/g, '')}`;
+  }
+  return cleaned.replace(/\+/g, '');
+};
 
 const servicesOptions = [
   'UI/UX Design',
@@ -23,38 +33,65 @@ const budgetOptions = [
 
 const Hero = () => {
   const recaptchaRef = useRef(null);
+  const heroVideoRef = useRef(null);
   const [captchaValue, setCaptchaValue] = useState(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const [formData, setFormData] = useState({
     user_name: '',
     user_email: '',
+    user_phone: '',
     service: '',
     budget: '',
     message: '',
   });
 
-  const [isCustomService, setIsCustomService] = useState(false);
   const [isCustomBudget, setIsCustomBudget] = useState(false);
   const [status, setStatus] = useState('');
+
   useEffect(() => {
-    const root = document.documentElement;
-    const syncTheme = () => setIsDarkMode(root.classList.contains('dark'));
+    const video = heroVideoRef.current;
+    if (!video) return;
 
-    syncTheme();
+    const syncPlayback = () => {
+      video.defaultPlaybackRate = 2;
+      video.playbackRate = 2;
+      void video.play().catch(() => {});
+    };
 
-    const observer = new MutationObserver(syncTheme);
-    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+    const resumePlayback = () => {
+      if (document.visibilityState === 'visible') {
+        syncPlayback();
+      }
+    };
 
-    return () => observer.disconnect();
+    video.addEventListener('loadedmetadata', syncPlayback);
+    video.addEventListener('canplay', syncPlayback);
+    video.addEventListener('playing', syncPlayback);
+    video.addEventListener('waiting', syncPlayback);
+    video.addEventListener('stalled', syncPlayback);
+    document.addEventListener('visibilitychange', resumePlayback);
+
+    return () => {
+      video.removeEventListener('loadedmetadata', syncPlayback);
+      video.removeEventListener('canplay', syncPlayback);
+      video.removeEventListener('playing', syncPlayback);
+      video.removeEventListener('waiting', syncPlayback);
+      video.removeEventListener('stalled', syncPlayback);
+      document.removeEventListener('visibilitychange', resumePlayback);
+    };
   }, []);
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: name === 'user_phone' ? sanitizePhone(value) : value,
+    });
+  };
 
   const handleSelectChange = (e, field) => {
     const value = e.target.value;
     if (value === 'Other') {
-      if (field === 'service') setIsCustomService(true);
       if (field === 'budget') setIsCustomBudget(true);
       setFormData({ ...formData, [field]: '' });
     } else {
@@ -88,8 +125,7 @@ const Hero = () => {
 
       if (response.ok) {
         setStatus('SUCCESS');
-        setFormData({ user_name: '', user_email: '', service: '', budget: '', message: '' });
-        setIsCustomService(false);
+        setFormData({ user_name: '', user_email: '', user_phone: '', service: '', budget: '', message: '' });
         setIsCustomBudget(false);
         recaptchaRef.current?.reset();
         setCaptchaValue(null);
@@ -103,16 +139,33 @@ const Hero = () => {
     }
   };
 
-  const inputClasses = 'w-full rounded-xl border border-black/10 bg-black/5 px-4 py-3 text-slate-900 placeholder-gray-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 dark:border-white/10 dark:bg-white/5 dark:text-white';
+  const inputClasses = 'hero-locked-field hero-dark-input w-full appearance-none rounded-xl border border-white/12 px-4 py-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50';
+  const heroFieldStyle = { backgroundColor: '#161022', color: '#ffffff', colorScheme: 'dark' };
 
   return (
     <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[170px] flex min-h-screen items-center overflow-hidden" id="hero">
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px] opacity-40" />
+      <div className="absolute inset-0 -z-20 overflow-hidden">
+        <video
+          ref={heroVideoRef}
+          className="h-full w-full object-cover"
+          src={heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          disablePictureInPicture
+          disableRemotePlayback
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,4,16,0.58)_0%,rgba(7,4,16,0.42)_28%,rgba(7,4,16,0.66)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.16),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.14),transparent_32%),radial-gradient(circle_at_center,rgba(249,115,22,0.12),transparent_42%)]" />
+      </div>
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff14_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:60px_60px] opacity-25" />
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        <div className="hero-shape shape-triangle top-[10%] right-[15%]"></div>
-        <div className="hero-shape shape-circle top-[65%] left-[8%]"></div>
-        <div className="hero-shape shape-square top-[25%] right-[35%]"></div>
-        <div className="hero-shape shape-cross top-[45%] left-[25%]"></div>
+        <div className="hero-shape shape-triangle top-[10%] right-[15%] opacity-80"></div>
+        <div className="hero-shape shape-circle top-[65%] left-[8%] opacity-75"></div>
+        <div className="hero-shape shape-square top-[25%] right-[35%] opacity-70"></div>
+        <div className="hero-shape shape-cross top-[45%] left-[25%] opacity-70"></div>
       </div>
 
       <div className="container mx-auto grid w-full grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-12 lg:gap-10 xl:gap-12 z-10">
@@ -126,10 +179,10 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, type: 'spring', damping: 20 }}
-            className="glass-card mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 px-3.5 py-2 sm:mb-8 sm:px-4"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/[0.04] px-3.5 py-2 backdrop-blur-xl sm:mb-8 sm:px-4"
           >
             <Sparkles className="h-4 w-4 text-secondary" />
-            <span className="font-heading text-sm font-medium tracking-widest text-slate-800 uppercase dark:text-gray-300">Open for Design Direction</span>
+            <span className="font-heading text-sm font-medium tracking-widest text-white uppercase">Open for Design Direction</span>
           </motion.div>
 
           <motion.h1
@@ -138,7 +191,7 @@ const Hero = () => {
             transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="mb-6 max-w-full text-[2.95rem] font-black tracking-tight uppercase leading-[0.92] sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[6.8rem] xl:text-8xl"
           >
-            <span className="block text-slate-950 dark:text-white">Crafting</span>
+            <span className="block text-white">Crafting</span>
             <span className="block text-gradient break-words">Artistic Brand</span>
             <span className="mt-2 inline-block max-w-full rounded-2xl bg-primary px-3.5 py-2 text-white shadow-2xl shadow-primary/20 break-words sm:px-6">
               Identity.
@@ -149,7 +202,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="mb-8 max-w-xl lg:max-w-[34rem] xl:max-w-xl text-base font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 sm:mb-10 sm:text-lg md:text-xl"
+            className="mb-8 max-w-xl lg:max-w-[34rem] xl:max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg md:text-xl"
           >
             We&apos;re a high-end design collective obsessed with sculpting premium visual journeys, stunning digital art, and brand systems that wowed.
           </motion.p>
@@ -166,7 +219,7 @@ const Hero = () => {
               </Button>
             </a>
             <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="block w-full sm:w-auto">
-              <Button variant="outline" className="w-full rounded-full border-primary px-10 py-5 text-sm font-black tracking-widest text-primary uppercase sm:w-auto">
+              <Button variant="outline" className="hero-locked-outline w-full rounded-full px-10 py-5 text-sm font-black tracking-widest uppercase sm:w-auto">
                 Consultation
               </Button>
             </a>
@@ -176,19 +229,19 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="mt-12 flex w-full max-w-xl flex-wrap items-center gap-x-8 gap-y-5 border-t border-black/5 pt-8 dark:border-white/5 sm:mt-16 sm:pt-10"
+            className="mt-12 flex w-full max-w-xl flex-wrap items-center gap-x-8 gap-y-5 border-t border-white/10 pt-8 sm:mt-16 sm:pt-10"
           >
             <div>
-              <div className="font-heading text-3xl font-black text-slate-900 dark:text-white sm:text-4xl">120+</div>
-              <div className="text-[10px] font-black tracking-widest text-slate-500 uppercase dark:text-gray-500">Brands Defined</div>
+              <div className="font-heading text-3xl font-black text-white sm:text-4xl">120+</div>
+              <div className="text-[10px] font-black tracking-widest text-white/55 uppercase">Brands Defined</div>
             </div>
             <div>
-              <div className="font-heading text-3xl font-black text-slate-900 dark:text-white sm:text-4xl">99%</div>
-              <div className="text-[10px] font-black tracking-widest text-slate-500 uppercase dark:text-gray-500">Client Recall</div>
+              <div className="font-heading text-3xl font-black text-white sm:text-4xl">99%</div>
+              <div className="text-[10px] font-black tracking-widest text-white/55 uppercase">Client Recall</div>
             </div>
             <div>
-              <div className="font-heading text-3xl font-black text-slate-900 dark:text-white sm:text-4xl">6+</div>
-              <div className="text-[10px] font-black tracking-widest text-slate-500 uppercase dark:text-gray-500">Design Awards</div>
+              <div className="font-heading text-3xl font-black text-white sm:text-4xl">6+</div>
+              <div className="text-[10px] font-black tracking-widest text-white/55 uppercase">Design Awards</div>
             </div>
           </motion.div>
         </motion.div>
@@ -201,7 +254,7 @@ const Hero = () => {
         >
           <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 opacity-20 blur-[100px] dark:opacity-40" />
 
-          <div className="glass-card relative overflow-visible rounded-[2rem] border border-black/5 bg-white p-5 shadow-[0_50px_100px_rgba(0,0,0,0.4)] backdrop-blur-3xl dark:border-white/5 dark:bg-dark-card/60 sm:rounded-[2.5rem] sm:p-7 md:rounded-[3.5rem] md:p-12">
+          <div className="relative overflow-visible rounded-[2rem] border border-primary/18 bg-[#140d24]/88 p-5 shadow-[0_50px_100px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-7 md:rounded-[3.5rem] md:p-12">
             {status === 'SUCCESS' ? (
               <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[1.75rem] border border-emerald-500/20 bg-emerald-500/10 p-8 text-center md:min-h-[470px]">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/20">
@@ -219,48 +272,39 @@ const Hero = () => {
               <>
                 <div className="mb-6 sm:mb-8">
                   <div className="mb-3 inline-block rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1 text-[10px] font-black tracking-widest text-primary uppercase sm:mb-4 sm:px-4">Selective Intake</div>
-                  <h2 className="font-heading text-2xl font-black tracking-tighter text-slate-950 uppercase leading-none dark:text-white sm:text-3xl">Elevate Your Presence</h2>
+                  <h2 className="font-heading text-2xl font-black tracking-tighter text-white uppercase leading-none sm:text-3xl">Elevate Your Presence</h2>
                 </div>
 
                 <form onSubmit={handleHeroSubmit} className="flex flex-col gap-5">
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                    <input required type="text" name="user_name" placeholder="Full Name" value={formData.user_name} onChange={handleChange} className={inputClasses} disabled={status === 'SENDING'} />
-                    <input required type="email" name="user_email" placeholder="Email Address" value={formData.user_email} onChange={handleChange} className={inputClasses} disabled={status === 'SENDING'} />
+                    <input required type="text" name="user_name" placeholder="Full Name" value={formData.user_name} onChange={handleChange} className={inputClasses} style={heroFieldStyle} disabled={status === 'SENDING'} />
+                    <input required type="email" name="user_email" placeholder="Email Address" value={formData.user_email} onChange={handleChange} className={inputClasses} style={heroFieldStyle} disabled={status === 'SENDING'} />
                   </div>
 
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                    <div className="relative group/field">
-                      {isCustomService ? (
-                        <input required type="text" name="service" placeholder="Type Service..." value={formData.service} onChange={handleChange} onBlur={(e) => { if (e.target.value.trim() === '') setIsCustomService(false); }} className={inputClasses} autoFocus />
-                      ) : (
-                        <select required name="service" value={formData.service} onChange={(e) => handleSelectChange(e, 'service')} style={{ colorScheme: isDarkMode ? 'dark' : 'light' }} className={`${inputClasses} appearance-none cursor-pointer`}>
-                          <option value="" disabled>Project Type</option>
-                          {servicesOptions.map((opt) => <option key={opt} value={opt} className="bg-white text-slate-900 dark:bg-[#0c0c1d] dark:text-white">{opt}</option>)}
-                        </select>
-                      )}
-                    </div>
+                    <input required type="tel" inputMode="tel" name="user_phone" placeholder="Phone Number" value={formData.user_phone} onChange={handleChange} className={inputClasses} style={heroFieldStyle} disabled={status === 'SENDING'} />
                     <div className="relative group/field">
                       {isCustomBudget ? (
-                        <input required type="text" name="budget" placeholder="Type Budget..." value={formData.budget} onChange={handleChange} onBlur={(e) => { if (e.target.value.trim() === '') setIsCustomBudget(false); }} className={inputClasses} autoFocus />
+                        <input required type="text" name="budget" placeholder="Type Budget..." value={formData.budget} onChange={handleChange} onBlur={(e) => { if (e.target.value.trim() === '') setIsCustomBudget(false); }} className={inputClasses} style={heroFieldStyle} autoFocus />
                       ) : (
-                        <select required name="budget" value={formData.budget} onChange={(e) => handleSelectChange(e, 'budget')} style={{ colorScheme: isDarkMode ? 'dark' : 'light' }} className={`${inputClasses} appearance-none cursor-pointer`}>
+                        <select required name="budget" value={formData.budget} onChange={(e) => handleSelectChange(e, 'budget')} style={heroFieldStyle} className={`${inputClasses} cursor-pointer`}>
                           <option value="" disabled>Design Budget</option>
-                          {budgetOptions.map((opt) => <option key={opt} value={opt} className="bg-white text-slate-900 dark:bg-[#0c0c1d] dark:text-white">{opt}</option>)}
+                          {budgetOptions.map((opt) => <option key={opt} value={opt} className="bg-[#140d24] text-white">{opt}</option>)}
                         </select>
                       )}
                     </div>
                   </div>
 
-                  <textarea required name="message" rows="3" placeholder="Tell us your visionary goals..." value={formData.message} onChange={handleChange} className={`${inputClasses} resize-none`} disabled={status === 'SENDING'}></textarea>
+                  <textarea required name="message" rows="3" placeholder="Tell us your visionary goals..." value={formData.message} onChange={handleChange} className={`${inputClasses} resize-none`} style={heroFieldStyle} disabled={status === 'SENDING'}></textarea>
 
-                  <div className="w-full rounded-2xl border border-black/10 bg-white/80 px-2.5 py-3 dark:border-white/10 dark:bg-dark-bg/60 sm:px-4 sm:py-4">
+                  <div className="w-full rounded-2xl border border-white/10 bg-[#0c0a17]/85 px-2.5 py-3 sm:px-4 sm:py-4">
                     <div className="recaptcha-shell">
                       <div className="recaptcha-frame">
                         <ReCAPTCHA
-                          key={isDarkMode ? 'hero-captcha-dark' : 'hero-captcha-light'}
+                          key="hero-captcha-dark"
                           ref={recaptchaRef}
                           sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
-                          theme={isDarkMode ? 'dark' : 'light'}
+                          theme="dark"
                           onChange={(value) => setCaptchaValue(value)}
                           onExpired={() => {
                             setCaptchaValue(null);

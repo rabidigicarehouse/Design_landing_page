@@ -19,6 +19,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [realmOpen, setRealmOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const realmRef = useRef(null);
   const aiPageUrl = import.meta.env.VITE_AI_PAGE_URL || 'https://ai-automation-landing-page-sigma.vercel.app/';
   const developmentPageUrl = import.meta.env.VITE_DEVELOPMENT_PAGE_URL || 'http://localhost:5175';
@@ -42,6 +43,28 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setIsDarkMode(root.classList.contains('dark'));
+
+    syncTheme();
+
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const headerOnHero = !isScrolled;
+  const desktopNavTextClass = headerOnHero || isDarkMode ? 'text-white' : 'text-slate-700';
+  const switchButtonClass = headerOnHero
+    ? 'border-primary/15 bg-white/[0.04] text-white'
+    : isDarkMode
+      ? 'border-primary/15 bg-white/[0.04] text-white'
+      : 'border-primary/15 bg-white/92 text-slate-800';
+  const switchButtonTitleClass = headerOnHero || isDarkMode ? 'text-white' : 'text-slate-800';
+  const dividerClass = headerOnHero ? 'border-white/12' : 'border-black/10 dark:border-white/10';
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'dark:bg-dark-bg/80 bg-white/80 backdrop-blur-3xl py-4 shadow-xl border-b border-black/5 dark:border-white/5' : 'bg-transparent py-8'
@@ -61,7 +84,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={(e) => handleScrollTo(e, link.href)}
-              className="group relative text-[10px] font-black uppercase tracking-[0.2em] dark:text-gray-400 text-slate-600 dark:hover:text-primary hover:text-primary transition-all duration-500 overflow-hidden"
+              className={`group relative overflow-hidden text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 hover:text-primary dark:hover:text-primary ${desktopNavTextClass}`}
             >
               <span className="block group-hover:-translate-y-full transition-transform duration-500">{link.name}</span>
               <span className="absolute top-full left-0 block text-primary transition-transform duration-500 group-hover:-translate-y-full">{link.name}</span>
@@ -72,13 +95,13 @@ const Navbar = () => {
         {/* Action Center */}
         <div className="flex items-center gap-4">
            <ThemeToggle />
-           <div className="hidden lg:block border-l border-black/10 dark:border-white/10 h-6 mx-2" />
+           <div className={`hidden lg:block h-6 mx-2 border-l ${dividerClass}`} />
            <div ref={realmRef} className="relative hidden lg:block">
              <motion.button
                whileHover={{ y: -2 }}
                whileTap={{ scale: 0.98 }}
                onClick={() => setRealmOpen((prev) => !prev)}
-               className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-primary/15 bg-white/85 px-5 py-3 text-[10px] font-black uppercase tracking-[0.22em] text-slate-800 shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-500 hover:border-primary/35 hover:shadow-[0_0_30px_rgba(124,58,237,0.18)] dark:bg-white/[0.04] dark:text-white"
+               className={`group relative inline-flex items-center gap-3 overflow-hidden rounded-full border px-5 py-3 text-[10px] font-black uppercase tracking-[0.22em] shadow-[0_18px_50px_rgba(15,23,42,0.12)] transition-all duration-500 backdrop-blur-2xl hover:border-primary/35 hover:shadow-[0_0_30px_rgba(124,58,237,0.18)] ${switchButtonClass}`}
              >
                <span className="absolute inset-0 bg-[linear-gradient(115deg,rgba(124,58,237,0.12),rgba(236,72,153,0.14),rgba(45,212,191,0.12))] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_24px_rgba(124,58,237,0.22)]">
@@ -86,7 +109,7 @@ const Navbar = () => {
                </span>
                <span className="relative flex flex-col items-start leading-none">
                  <span className="text-[9px] font-black tracking-[0.28em] text-primary/80">Switch To</span>
-                 <span className="mt-1 text-[10px] font-black tracking-[0.22em] text-slate-800 dark:text-white">Creative Realms</span>
+                 <span className={`mt-1 text-[10px] font-black tracking-[0.22em] ${switchButtonTitleClass}`}>The Ai Syndicates</span>
                </span>
                <ArrowUpRight className={`relative h-4 w-4 text-primary transition-transform duration-500 ${realmOpen ? 'rotate-45' : 'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'}`} />
              </motion.button>
@@ -116,7 +139,7 @@ const Navbar = () => {
                            <Bot className="h-5 w-5" />
                          </span>
                          <span className="flex flex-col">
-                           <span className="text-sm font-black uppercase tracking-[0.18em] text-slate-900 dark:text-white">The Intelligent Orbit</span>
+                          <span className="text-sm font-black uppercase tracking-[0.18em] text-slate-900 dark:text-white">The Ai Syndicates</span>
                            <span className="text-[11px] font-medium tracking-[0.08em] text-slate-500 dark:text-gray-400">AI systems, agents, and automation</span>
                          </span>
                        </span>
@@ -132,7 +155,7 @@ const Navbar = () => {
                            <Code2 className="h-5 w-5" />
                          </span>
                          <span className="flex flex-col">
-                           <span className="text-sm font-black uppercase tracking-[0.18em] text-slate-900 dark:text-white">The Tech Syndicate</span>
+                          <span className="text-sm font-black uppercase tracking-[0.18em] text-slate-900 dark:text-white">The Tech Synidicate</span>
                            <span className="text-[11px] font-medium tracking-[0.08em] text-slate-500 dark:text-gray-400">Products, engineering, and delivery</span>
                          </span>
                        </span>
@@ -169,9 +192,17 @@ const Navbar = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 top-0 left-0 z-[100] h-screen w-full bg-white p-4 dark:bg-dark-bg lg:hidden"
           >
-            <div className="mx-auto flex h-full w-full max-w-sm flex-col rounded-[2rem] border border-black/5 bg-white px-6 pb-8 pt-20 shadow-[0_30px_80px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-[#07101d]">
-            <div className="absolute top-7 right-7">
-               <button onClick={() => setMobileMenuOpen(false)} className="flex h-14 w-14 items-center justify-center rounded-full border border-black/5 bg-slate-100/90 text-slate-700 shadow-lg transition-all hover:text-primary dark:border-white/10 dark:bg-white/5 dark:text-white"><X size={30} /></button>
+            <div className="mx-auto flex h-full w-full max-w-sm flex-col rounded-[2rem] border border-black/5 bg-white px-6 pb-8 pt-6 shadow-[0_30px_80px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-[#07101d]">
+            <div className="mb-6 flex items-center gap-2">
+              <a href={aiPageUrl} className="group inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-full border border-black/5 bg-slate-50/95 px-3 py-2.5 text-slate-900 shadow-lg transition-all duration-500 hover:border-primary/20 hover:text-primary dark:border-white/10 dark:bg-white/[0.04] dark:text-white">
+                <Bot className="h-4 w-4 text-primary shrink-0" />
+                <span className="truncate text-[8px] font-black uppercase tracking-[0.14em]">The Ai Syndicates</span>
+              </a>
+              <a href={developmentPageUrl} className="group inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-full border border-black/5 bg-slate-50/95 px-3 py-2.5 text-slate-900 shadow-lg transition-all duration-500 hover:border-secondary/20 hover:text-secondary dark:border-white/10 dark:bg-white/[0.04] dark:text-white">
+                <Code2 className="h-4 w-4 text-secondary shrink-0" />
+                <span className="truncate text-[8px] font-black uppercase tracking-[0.14em]">The Tech Synidicate</span>
+              </a>
+              <button onClick={() => setMobileMenuOpen(false)} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/5 bg-slate-100/90 text-slate-700 shadow-lg transition-all hover:text-primary dark:border-white/10 dark:bg-white/5 dark:text-white"><X size={19} /></button>
             </div>
 
             <div className="mb-8 flex items-center gap-3">
@@ -202,33 +233,6 @@ const Navbar = () => {
                 Connect Us <ArrowUpRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
-
-            <div className="mt-4 grid gap-3 lg:hidden">
-              <a href={aiPageUrl} className="group flex items-center justify-between rounded-[1.35rem] border border-black/5 bg-slate-50/90 px-4 py-4 text-slate-900 transition-all duration-500 hover:border-primary/20 hover:text-primary dark:border-white/8 dark:bg-white/[0.03] dark:text-white">
-                <span className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Bot className="h-5 w-5" />
-                  </span>
-                  <span className="text-sm font-black uppercase tracking-[0.18em]">The Intelligent Orbit</span>
-                </span>
-                <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </a>
-
-              <a href={developmentPageUrl} className="group flex items-center justify-between rounded-[1.35rem] border border-black/5 bg-slate-50/90 px-4 py-4 text-slate-900 transition-all duration-500 hover:border-primary/20 hover:text-primary dark:border-white/8 dark:bg-white/[0.03] dark:text-white">
-                <span className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-secondary/10 text-secondary">
-                    <Code2 className="h-5 w-5" />
-                  </span>
-                  <span className="text-sm font-black uppercase tracking-[0.18em]">The Tech Syndicate</span>
-                </span>
-                <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </a>
-            </div>
-
-            <div className="mt-auto flex flex-col gap-4 border-t border-black/5 pt-7 dark:border-white/5">
-               <a href="tel:+18483843773" className="text-2xl font-black tracking-tight text-primary">+1 (848) 384 3773</a>
-               <p className="max-w-[20rem] text-sm font-light leading-relaxed text-slate-500 dark:text-gray-500">Available for artistic direction globally.</p>
-            </div>
             </div>
           </motion.div>
         )}

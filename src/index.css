@@ -131,6 +131,43 @@ body {
   transform-origin: center top;
 }
 
+.hero-dark-input:-webkit-autofill,
+.hero-dark-input:-webkit-autofill:hover,
+.hero-dark-input:-webkit-autofill:focus,
+.hero-dark-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff;
+  caret-color: #ffffff;
+  box-shadow: 0 0 0 1000px rgba(22, 16, 34, 0.92) inset;
+  -webkit-box-shadow: 0 0 0 1000px rgba(22, 16, 34, 0.92) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+#hero .hero-locked-field {
+  background: #161022 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+#hero .hero-locked-field::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+#hero .hero-locked-field option {
+  background: #161022 !important;
+  color: #ffffff !important;
+}
+
+#hero .hero-locked-outline {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  color: #ffffff !important;
+}
+
+#hero .hero-locked-outline:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+}
+
 @media (max-width: 380px) {
   .recaptcha-shell {
     min-height: 68px;

@@ -70,10 +70,16 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/api/contact', async (req, res) => {
-  const { user_name, user_email, service, budget, message, recaptcha_token, landing_page } = req.body;
+  const { user_name, user_email, user_phone, service, budget, message, recaptcha_token, landing_page } = req.body;
+  const cleanName = user_name?.trim();
+  const cleanEmail = user_email?.trim();
+  const cleanPhone = user_phone?.trim();
+  const cleanService = service?.trim();
+  const cleanBudget = budget?.trim();
+  const cleanMessage = message?.trim();
 
-  if (!user_name || !user_email || !message || !recaptcha_token) {
-    return res.status(400).json({ error: 'Missing required fields or recaptcha token.' });
+  if (!cleanName || !cleanEmail || !cleanPhone || !cleanMessage || !recaptcha_token) {
+    return res.status(400).json({ error: 'Missing required fields, phone number, or recaptcha token.' });
   }
 
   try {
@@ -89,22 +95,23 @@ app.post('/api/contact', async (req, res) => {
     const leadFormat = leadFormats[landing_page] || leadFormats.default;
 
     const mailOptions = {
-      from: `"${user_name}" <${process.env.SMTP_USER}>`,
-      replyTo: user_email,
+      from: `"${cleanName}" <${process.env.SMTP_USER}>`,
+      replyTo: cleanEmail,
       to: process.env.SMTP_TO,
-      subject: `New ${leadFormat.label} Lead: ${service || 'General'} from ${user_name}`,
+      subject: `New ${leadFormat.label} Lead: ${cleanService || 'General'} from ${cleanName}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #111;">
           <h2 style="border-bottom: 2px solid ${leadFormat.accent}; padding-bottom: 10px;">${leadFormat.heading}</h2>
           <p><strong>Landing Page:</strong> ${leadFormat.label}</p>
-          <p><strong>Name:</strong> ${user_name}</p>
-          <p><strong>Email:</strong> ${user_email}</p>
-          <p><strong>Service Requested:</strong> ${service || 'General'}</p>
-          <p><strong>Target Budget:</strong> ${budget || 'Not specified'}</p>
+          <p><strong>Name:</strong> ${cleanName}</p>
+          <p><strong>Email:</strong> ${cleanEmail}</p>
+          <p><strong>Phone:</strong> ${cleanPhone}</p>
+          ${cleanService ? `<p><strong>Service Requested:</strong> ${cleanService}</p>` : ''}
+          <p><strong>Target Budget:</strong> ${cleanBudget || 'Not specified'}</p>
 
           <h3 style="margin-top: 30px;">Project Details:</h3>
           <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px;">
-            ${message.replace(/\n/g, '<br/>')}
+            ${cleanMessage.replace(/\n/g, '<br/>')}
           </div>
         </div>
       `,

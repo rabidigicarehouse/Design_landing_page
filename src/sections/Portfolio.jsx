@@ -58,6 +58,7 @@ const PortfolioCard = memo(function PortfolioCard({ project, index }) {
   const cardRef = useRef(null);
   const videoRef = useRef(null);
   const [shouldLoad, setShouldLoad] = useState(index < 2);
+  const [isActive, setIsActive] = useState(index < 2);
 
   useEffect(() => {
     if (shouldLoad || !cardRef.current) return;
@@ -77,6 +78,21 @@ const PortfolioCard = memo(function PortfolioCard({ project, index }) {
   }, [shouldLoad]);
 
   useEffect(() => {
+    if (!cardRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsActive(Boolean(entry?.isIntersecting));
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(cardRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const video = videoRef.current;
     if (!shouldLoad || !video) return;
 
@@ -86,28 +102,40 @@ const PortfolioCard = memo(function PortfolioCard({ project, index }) {
       ensureVideoPlayback(video);
     };
 
-    if (video.readyState >= 2) {
+    const syncVisibilityPlayback = () => {
+      if (document.visibilityState === 'visible' && isActive) {
+        applyPlayback();
+      } else {
+        video.pause();
+      }
+    };
+
+    if (video.readyState >= 2 && isActive) {
       applyPlayback();
     } else {
-      video.addEventListener('loadedmetadata', applyPlayback);
+      video.addEventListener('loadedmetadata', syncVisibilityPlayback);
     }
 
-    video.addEventListener('canplay', applyPlayback);
-    video.addEventListener('playing', applyPlayback);
-    video.addEventListener('waiting', applyPlayback);
-    video.addEventListener('stalled', applyPlayback);
+    video.addEventListener('canplay', syncVisibilityPlayback);
+    video.addEventListener('playing', syncVisibilityPlayback);
+    video.addEventListener('waiting', syncVisibilityPlayback);
+    video.addEventListener('stalled', syncVisibilityPlayback);
     video.addEventListener('ended', restartPlayback);
+    document.addEventListener('visibilitychange', syncVisibilityPlayback);
+
+    syncVisibilityPlayback();
 
     return () => {
-      video.removeEventListener('loadedmetadata', applyPlayback);
-      video.removeEventListener('canplay', applyPlayback);
-      video.removeEventListener('playing', applyPlayback);
-      video.removeEventListener('waiting', applyPlayback);
-      video.removeEventListener('stalled', applyPlayback);
+      video.removeEventListener('loadedmetadata', syncVisibilityPlayback);
+      video.removeEventListener('canplay', syncVisibilityPlayback);
+      video.removeEventListener('playing', syncVisibilityPlayback);
+      video.removeEventListener('waiting', syncVisibilityPlayback);
+      video.removeEventListener('stalled', syncVisibilityPlayback);
       video.removeEventListener('ended', restartPlayback);
+      document.removeEventListener('visibilitychange', syncVisibilityPlayback);
       video.pause();
     };
-  }, [shouldLoad]);
+  }, [shouldLoad, isActive]);
 
   return (
     <motion.article
