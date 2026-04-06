@@ -103,12 +103,13 @@ const Pricing = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.8, ease: 'easeOut' }}
-              className={`relative flex flex-col rounded-[4rem] border p-10 transition-all duration-700 hover:-translate-y-6 ${
+              className={`group relative flex flex-col rounded-[4rem] border p-10 transition-all duration-700 hover:-translate-y-6 ${
                 plan.popular
                   ? 'z-10 scale-105 border-primary/40 bg-white shadow-2xl dark:bg-dark-card'
-                  : 'border-black/5 bg-white shadow-xl hover:border-primary/20 dark:border-white/5 dark:bg-dark-card/30'
+                  : 'border-black/5 bg-white shadow-xl hover:border-primary/28 hover:shadow-[0_28px_70px_rgba(124,58,237,0.14)] dark:border-white/5 dark:bg-dark-card/30 dark:hover:shadow-[0_28px_70px_rgba(124,58,237,0.16)]'
               }`}
             >
+              <div className="pointer-events-none absolute inset-0 rounded-[4rem] bg-[radial-gradient(circle_at_top,rgba(124,58,237,0.14),transparent_55%)] opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100" />
               {plan.popular && (
                 <div className="absolute -top-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-primary px-6 py-2 text-xs font-black uppercase tracking-widest text-white shadow-lg">
                   <Sparkles className="h-4 w-4" /> Lab Choice
@@ -116,7 +117,7 @@ const Pricing = () => {
               )}
 
               <div className="mb-12">
-                <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-black/5 bg-slate-50 shadow-sm transition-transform duration-700 group-hover:rotate-12 dark:border-white/10 dark:bg-white/5">
+                <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-black/5 bg-slate-50 shadow-sm transition-all duration-700 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-[0_0_34px_rgba(124,58,237,0.18)] dark:border-white/10 dark:bg-white/5">
                   {plan.icon}
                 </div>
                 <h3 className="font-heading mb-4 text-3xl font-black uppercase leading-none tracking-tighter text-slate-950 dark:text-white">{plan.name}</h3>

@@ -144,7 +144,7 @@ const Hero = () => {
 
   return (
     <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[170px] flex min-h-screen items-center overflow-hidden" id="hero">
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+      <div className="cursor-video absolute inset-0 -z-20 overflow-hidden">
         <video
           ref={heroVideoRef}
           className="h-full w-full object-cover"
