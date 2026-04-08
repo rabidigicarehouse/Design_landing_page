@@ -143,7 +143,7 @@ const Hero = () => {
   const heroFieldStyle = { backgroundColor: '#161022', color: '#ffffff', colorScheme: 'dark' };
 
   return (
-    <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[170px] flex min-h-screen items-center overflow-hidden" id="hero">
+    <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[92px] xl:!pt-[98px] 2xl:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[150px] lg:pb-[46px] xl:pb-[56px] 2xl:pb-[170px] flex min-h-screen items-center overflow-hidden" id="hero">
       <div className="cursor-video absolute inset-0 -z-20 overflow-hidden">
         <video
           ref={heroVideoRef}
@@ -168,12 +168,12 @@ const Hero = () => {
         <div className="hero-shape shape-cross top-[45%] left-[25%] opacity-70"></div>
       </div>
 
-      <div className="container mx-auto grid w-full grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-12 lg:gap-10 xl:gap-12 z-10">
+      <div className="container laptop-scale-hero mx-auto grid w-full grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-12 lg:gap-0 lg:px-2 xl:gap-1 xl:px-3 2xl:gap-12 z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-start text-left lg:col-span-7"
+          className="flex flex-col items-start text-left lg:col-span-6 lg:pr-3 xl:pr-5 2xl:col-span-7"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -189,7 +189,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-6 max-w-full text-[2.95rem] font-black tracking-tight uppercase leading-[0.92] sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[6.8rem] xl:text-8xl"
+            className="mb-5 max-w-full text-[2.95rem] font-black tracking-tight uppercase leading-[0.92] sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[2.65rem] xl:text-[3.05rem] 2xl:text-8xl"
           >
             <span className="block text-white">Crafting</span>
             <span className="block text-gradient break-words">Artistic Brand</span>
@@ -202,9 +202,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="mb-8 max-w-xl lg:max-w-[34rem] xl:max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg md:text-xl"
+            className="mb-5 max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg lg:max-w-[22rem] lg:text-[0.86rem] xl:mb-7 xl:max-w-[24rem] xl:text-[0.92rem] 2xl:max-w-xl 2xl:text-xl"
           >
-            We&apos;re a high-end design collective obsessed with sculpting premium visual journeys, stunning digital art, and brand systems that wowed.
+            The Design Hands sculpt premium visual journeys, stunning digital art, and brand systems that leave a lasting impression.
           </motion.p>
 
           <motion.div
@@ -229,7 +229,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="mt-12 flex w-full max-w-xl flex-wrap items-center gap-x-8 gap-y-5 border-t border-white/10 pt-8 sm:mt-16 sm:pt-10"
+            className="mt-4 flex w-full max-w-xl flex-wrap items-center gap-x-7 gap-y-4 border-t border-white/10 pt-5 sm:mt-16 sm:pt-10 lg:mt-1 lg:gap-x-2.5 lg:pt-3 xl:mt-3 xl:gap-x-3.5 xl:pt-4"
           >
             <div>
               <div className="font-heading text-3xl font-black text-white sm:text-4xl">120+</div>
@@ -250,11 +250,11 @@ const Hero = () => {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-          className="relative w-full lg:col-span-5"
+          className="relative w-full lg:col-span-6 lg:max-w-[39rem] lg:justify-self-end xl:max-w-[41rem] xl:justify-self-end 2xl:col-span-5 2xl:max-w-none 2xl:justify-self-end"
         >
           <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 opacity-20 blur-[100px] dark:opacity-40" />
 
-          <div className="relative overflow-visible rounded-[2rem] border border-primary/18 bg-[#140d24]/88 p-5 shadow-[0_50px_100px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-7 md:rounded-[3.5rem] md:p-12">
+            <div className="relative overflow-visible rounded-[2rem] border border-primary/18 bg-[#140d24]/88 p-5 shadow-[0_50px_100px_rgba(0,0,0,0.42)] backdrop-blur-3xl sm:rounded-[2.5rem] sm:p-7 md:rounded-[3.5rem] lg:rounded-[2rem] lg:p-4 xl:rounded-[2.2rem] xl:p-[1.15rem] 2xl:rounded-[3.5rem] 2xl:p-12">
             {status === 'SUCCESS' ? (
               <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[1.75rem] border border-emerald-500/20 bg-emerald-500/10 p-8 text-center md:min-h-[470px]">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/20">
@@ -272,16 +272,16 @@ const Hero = () => {
               <>
                 <div className="mb-6 sm:mb-8">
                   <div className="mb-3 inline-block rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1 text-[10px] font-black tracking-widest text-primary uppercase sm:mb-4 sm:px-4">Selective Intake</div>
-                  <h2 className="font-heading text-2xl font-black tracking-tighter text-white uppercase leading-none sm:text-3xl">Elevate Your Presence</h2>
+                  <h2 className="font-heading text-2xl font-black tracking-tight text-white uppercase leading-none sm:text-3xl lg:text-[1.1rem] lg:font-medium xl:text-[1.22rem] 2xl:text-[2rem]">Elevate Your Presence</h2>
                 </div>
 
-                <form onSubmit={handleHeroSubmit} className="flex flex-col gap-5">
-                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                <form onSubmit={handleHeroSubmit} className="flex flex-col gap-5 lg:gap-4 xl:gap-4.5">
+                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-4 xl:gap-4.5">
                     <input required type="text" name="user_name" placeholder="Full Name" value={formData.user_name} onChange={handleChange} className={inputClasses} style={heroFieldStyle} disabled={status === 'SENDING'} />
                     <input required type="email" name="user_email" placeholder="Email Address" value={formData.user_email} onChange={handleChange} className={inputClasses} style={heroFieldStyle} disabled={status === 'SENDING'} />
                   </div>
 
-                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-4 xl:gap-4.5">
                     <input required type="tel" inputMode="tel" name="user_phone" placeholder="Phone Number" value={formData.user_phone} onChange={handleChange} className={inputClasses} style={heroFieldStyle} disabled={status === 'SENDING'} />
                     <div className="relative group/field">
                       {isCustomBudget ? (
