@@ -72,8 +72,8 @@ const Navbar = () => {
     >
       <div className="container laptop-scale-navbar mx-auto px-5 sm:px-6 lg:pl-10 lg:pr-6 xl:pl-12 xl:pr-7 2xl:px-6 flex items-center justify-between">
         
-        {/* Brand Identity */}
-        <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="flex items-center gap-3 group relative h-10 sm:h-11 lg:ml-2 xl:ml-3 lg:h-[1.95rem] xl:h-[2.2rem] 2xl:h-11 max-w-[170px] lg:max-w-[150px] xl:max-w-[170px] 2xl:max-w-[210px]">
+        {/* Brand Identity - ENLARGED LOGO */}
+        <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="flex items-center gap-3 group relative h-14 sm:h-16 lg:ml-2 xl:ml-3 lg:h-[2.8rem] xl:h-[3.2rem] 2xl:h-[3.8rem] max-w-[220px] lg:max-w-[200px] xl:max-w-[240px] 2xl:max-w-[280px]">
           <img src={logo} alt="DigiCareHouse" className="h-full w-full object-contain object-left transition-all duration-700 group-hover:scale-105" />
         </a>
 

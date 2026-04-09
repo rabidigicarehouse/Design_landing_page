@@ -78,8 +78,8 @@ const Footer = () => {
                 Brooklyn, NY 11210
               </p>
               <div className="flex flex-col gap-4">
-                <a href="mailto:info@digicarehouse.com" className="flex items-center gap-2 group text-primary font-bold">
-                  <Mail size={16} /> info@digicarehouse.com
+                <a href="mailto:info@thedesignhands.com" className="flex items-center gap-2 group text-primary font-bold">
+                  <Mail size={16} /> info@thedesignhands.com
                   <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
                 <a href="tel:+18483843773" className="flex items-center gap-2 group text-primary font-bold">

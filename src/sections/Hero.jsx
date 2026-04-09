@@ -272,7 +272,7 @@ const Hero = () => {
               <>
                 <div className="mb-6 sm:mb-8">
                   <div className="mb-3 inline-block rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1 text-[10px] font-black tracking-widest text-primary uppercase sm:mb-4 sm:px-4">Selective Intake</div>
-                  <h2 className="font-heading text-2xl font-black tracking-tight text-white uppercase leading-none sm:text-3xl lg:text-[1.1rem] lg:font-medium xl:text-[1.22rem] 2xl:text-[2rem]">Elevate Your Presence</h2>
+                  <h2 className="font-heading text-2xl font-black tracking-tight text-white uppercase leading-none sm:text-3xl lg:text-[1.1rem] lg:font-medium xl:text-[1.22rem] 2xl:text-[2rem]">Start Your Project</h2>
                 </div>
 
                 <form onSubmit={handleHeroSubmit} className="flex flex-col gap-5 lg:gap-4 xl:gap-4.5">
