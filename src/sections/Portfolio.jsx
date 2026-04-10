@@ -2,6 +2,9 @@ import React, { memo, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
+import Button from '../components/Button';
+import { companyPhoneHref } from '../data/contact';
+import { handlePrimaryContactAction } from '../utils/contactActions';
 
 import videoBrand from '../assets/Animated_gif/1.mp4';
 import videoTransform from '../assets/Animated_gif/2.mp4';
@@ -195,10 +198,18 @@ const PortfolioCard = memo(function PortfolioCard({ project, index }) {
 
 const Portfolio = () => {
   return (
-    <section className="section overflow-hidden bg-slate-50 py-24 xl:py-28 2xl:py-32 dark:bg-dark-bg" id="work">
+    <section className="section section-theme-rose overflow-hidden py-24 xl:py-28 2xl:py-32" id="work">
       <div className="container laptop-scale-section mx-auto px-6">
-        <div className="mb-12 xl:mb-14 2xl:mb-16 flex flex-col gap-8 xl:gap-10 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-12 xl:mb-14 2xl:mb-16 flex flex-col gap-6 xl:gap-8 lg:flex-row lg:items-center lg:justify-between">
           <SectionHeading title="Design That Speaks" subtitle="Selected Work" />
+          <Button
+            variant="outline"
+            onClick={(e) => handlePrimaryContactAction(e, companyPhoneHref)}
+            className="group self-start rounded-full border-primary/20 bg-primary/5 px-7 py-4 text-[11px] font-black uppercase tracking-[0.24em] text-primary transition-all duration-500 hover:bg-primary/10"
+          >
+            Connect Us
+            <ArrowUpRight className="ml-3 h-4 w-4 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </Button>
         </div>
 
         <div className="grid grid-cols-1 gap-8 xl:gap-9 2xl:gap-10 md:grid-cols-2">
