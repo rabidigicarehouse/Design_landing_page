@@ -180,12 +180,8 @@ const PortfolioCard = memo(function PortfolioCard({ project, index }) {
       <div className="absolute inset-0 dark:bg-[linear-gradient(180deg,rgba(0,0,0,0.12)_0%,rgba(0,0,0,0.03)_36%,rgba(0,0,0,0)_58%)]" />
       <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-transparent via-transparent to-transparent dark:from-[#09090f] dark:via-[#09090f]/86 dark:to-transparent" />
 
-      <div className="absolute right-6 top-6 flex h-16 w-16 items-center justify-center rounded-full border border-slate-200 bg-white/88 text-slate-700 shadow-sm backdrop-blur-md transition-all duration-500 group-hover:text-primary dark:border-white/10 dark:bg-white/6 dark:text-white/80">
-        <ArrowUpRight className="h-8 w-8 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
-      </div>
-
       <div className="absolute inset-x-0 bottom-0 p-8 md:p-10">
-        <div className="mb-5 inline-flex items-center rounded-full border border-slate-200 bg-white/85 px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-700 dark:border-white/10 dark:bg-white/6 dark:text-white/78">
+        <div className="mb-5 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-primary shadow-[0_10px_30px_rgba(124,58,237,0.12)] dark:border-primary/30 dark:bg-primary/12 dark:text-white">
           {project.category}
         </div>
         <h3 className="font-heading w-full max-w-full text-[2.3rem] font-black uppercase leading-[0.88] tracking-tighter text-white md:text-[3rem]">
@@ -200,7 +196,7 @@ const Portfolio = () => {
   return (
     <section className="section section-theme-rose overflow-hidden py-24 xl:py-28 2xl:py-32" id="work">
       <div className="container laptop-scale-section mx-auto px-6">
-        <div className="mb-12 xl:mb-14 2xl:mb-16 flex flex-col gap-6 xl:gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mb-12 xl:mb-14 2xl:mb-16 flex flex-col gap-6 xl:gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading title="Design That Speaks" subtitle="Selected Work" />
           <Button
             variant="outline"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, ArrowUpRight, MapPin } from 'lucide-react';
 import logo from '../assets/Digiicare.png';
 import ServiceModal from '../components/ServiceModal';
 import { servicesData } from '../data/services';
@@ -67,12 +67,11 @@ const Footer = () => {
 
             <div className="md:col-span-2 xl:col-span-1">
               <h4 className="mb-10 text-xs font-black uppercase tracking-widest text-slate-950/70 dark:text-white/70">Agency Info</h4>
-              <p className="mb-8 text-lg font-light italic leading-relaxed text-slate-600 dark:text-gray-400">
-                1839 Flatbush Ave,
-                <br />
-                Brooklyn, NY 11210
-              </p>
               <div className="flex flex-col gap-4">
+                <a href="https://maps.google.com/?q=BEST-CFO%2099%20Wallstreet%20New%20York%20NY%2010005" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-sm font-bold text-primary">
+                  <MapPin size={18} /> BEST-CFO - 99 WALLSTREET, NEW YORK.NY 10005
+                  <ArrowUpRight size={14} className="opacity-0 transition-opacity group-hover:opacity-100" />
+                </a>
                 <a href="mailto:info@thedesignhands.com" className="group flex items-center gap-2 font-bold text-primary">
                   <Mail size={16} /> info@thedesignhands.com
                   <ArrowUpRight size={14} className="opacity-0 transition-opacity group-hover:opacity-100" />
