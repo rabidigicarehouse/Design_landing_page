@@ -10,6 +10,7 @@ import videoBrand from '../assets/Animated_gif/1.mp4';
 import videoTransform from '../assets/Animated_gif/2.mp4';
 import videoWeb from '../assets/Animated_gif/3.mp4';
 import videoUI from '../assets/Animated_gif/4.mp4';
+import { assetSrc } from '../utils/assetSrc';
 
 const ensureVideoPlayback = (video) => {
   if (!video) return;
@@ -30,28 +31,28 @@ const projects = [
   {
     title: 'Build A Brand',
     category: 'Full Identity',
-    media: videoBrand,
+    media: assetSrc(videoBrand),
     objectPosition: 'center center',
     accent: 'from-rose-200/50 via-fuchsia-200/25 to-transparent dark:from-rose-400/10 dark:via-fuchsia-400/8 dark:to-transparent',
   },
   {
     title: 'Build Experiences',
     category: 'UI/UX Mobile',
-    media: videoUI,
+    media: assetSrc(videoUI),
     objectPosition: 'center center',
     accent: 'from-violet-200/45 via-sky-200/25 to-transparent dark:from-violet-400/10 dark:via-sky-400/8 dark:to-transparent',
   },
   {
     title: 'Make Your Brand Presentable',
     category: 'E-Commerce',
-    media: videoTransform,
+    media: assetSrc(videoTransform),
     objectPosition: 'center center',
     accent: 'from-indigo-200/45 via-blue-200/25 to-transparent dark:from-indigo-400/10 dark:via-blue-400/8 dark:to-transparent',
   },
   {
     title: 'Aura Creative Agency',
     category: 'Web Experience',
-    media: videoWeb,
+    media: assetSrc(videoWeb),
     objectPosition: 'center top',
     accent: 'from-cyan-200/45 via-slate-200/20 to-transparent dark:from-cyan-400/10 dark:via-slate-400/8 dark:to-transparent',
   },
