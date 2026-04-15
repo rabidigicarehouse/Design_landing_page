@@ -51,7 +51,10 @@ function App() {
       panels.forEach((panel, index) => {
         ScrollTrigger.create({
           trigger: panel,
-          start: () => (panel.offsetHeight < window.innerHeight ? 'top top' : 'bottom bottom'),
+          start: () => {
+            const pid = panel.dataset.panelId;
+            return (pid === 'our-work' || pid === 'contact' || pid === 'pricing' || panel.offsetHeight <= window.innerHeight) ? 'top top' : 'bottom bottom';
+          },
           pin: true,
           pinSpacing: false,
           invalidateOnRefresh: true,
@@ -114,7 +117,7 @@ function App() {
         {sections.map((section, index) => (
           <div
             key={section.id}
-            className="panel-shell w-full relative"
+            className={`w-full relative ${section.id === 'tech' ? '' : 'panel-shell'}`}
             style={{ zIndex: index + 1 }}
             data-panel-id={section.id}
           >

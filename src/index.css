@@ -289,6 +289,11 @@ body {
   min-height: 100svh;
 }
 
+.panel-shell[data-panel-id="tech"],
+.panel-shell[data-panel-id="tech"] > section {
+  min-height: auto;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

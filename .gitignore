@@ -9,3 +9,4 @@ backend/
 The Design Hands/
 backend-hostinger/
 /.next
+env.example.txt

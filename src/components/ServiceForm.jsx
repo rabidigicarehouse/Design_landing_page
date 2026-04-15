@@ -132,23 +132,21 @@ export default function ServiceForm({ initialService, isMini = false, forceDark 
   }
 
   const effectiveDarkMode = forceDark || isDarkMode;
-  const fieldBase = isMini
-    ? 'px-4 py-3 text-[15px] lg:px-3.25 lg:py-2.25 lg:text-[13px] xl:px-3.75 xl:py-2.75 xl:text-[14px]'
-    : 'px-4 sm:px-5 py-3.5 sm:py-4 text-sm lg:px-2.75 lg:py-2.25 lg:text-[11px] xl:px-3.25 xl:py-2.75 xl:text-[12px]';
+  const fieldBase = isMini ? 'px-4 py-3 text-[15px] lg:px-3.5 lg:py-2.5 lg:text-[14px] xl:px-4 xl:py-3 xl:text-[15px]' : 'px-4 py-3.5 text-sm sm:px-5 sm:py-4 lg:px-3.5 lg:py-[0.6875rem] lg:text-[12.5px] xl:px-4 xl:py-3 xl:text-[13px]';
   const shellClasses = forceDark
-    ? 'border-primary/18 bg-[#140d24]/88 shadow-[0_50px_100px_rgba(0,0,0,0.42)]'
+    ? 'border-primary/20 bg-[#0d1628]/90 shadow-[0_50px_100px_rgba(0,0,0,0.45)]'
     : 'border-slate-200 bg-slate-50 shadow-sm dark:border-white/10 dark:bg-white/5';
   const titleClasses = forceDark ? 'text-white' : 'text-slate-900 dark:text-white';
   const inputClasses = forceDark
-    ? 'border border-white/12 bg-[#161022] text-white placeholder:text-white/40'
+    ? 'border border-white/10 bg-white/5 text-white placeholder:text-white/35'
     : 'border border-slate-200 bg-white text-slate-900 dark:border-white/10 dark:bg-dark-bg/50 dark:text-white';
   const recaptchaWrapClasses = forceDark
-    ? 'border-white/10 bg-[#0c0a17]/85'
+    ? 'border-white/10 bg-[#091120]/90'
     : 'border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-dark-bg/60';
 
   return (
-    <div className={`${isMini ? 'h-full rounded-[1.75rem] p-4 md:rounded-[2rem] md:p-5 lg:p-3.5 xl:p-4.5' : 'rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-6 md:rounded-[2.5rem] md:p-10 lg:p-4.5 xl:p-5.5'} group relative overflow-visible border ${shellClasses}`}>
-      <h3 className={`${isMini ? 'mb-4 text-[1.85rem] md:text-[2rem] lg:text-[1.6rem] xl:text-[1.85rem]' : 'mb-5 text-lg sm:text-xl md:mb-6 lg:text-[1.18rem] xl:text-[1.38rem]'} font-heading font-bold ${titleClasses}`}>
+    <div className={`${isMini ? 'h-full rounded-[1.75rem] p-4 md:rounded-[2rem] md:p-5 lg:p-4.5 xl:p-5.5' : 'rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-6 md:rounded-[2.5rem] md:p-10 lg:p-6 xl:p-7'} group relative overflow-visible border ${shellClasses}`}>
+      <h3 className={`${isMini ? 'mb-4 text-[1.85rem] md:text-[2rem] lg:text-[1.48rem] xl:text-[1.68rem]' : 'mb-5 text-lg sm:text-xl md:mb-6 lg:text-[1.2rem] xl:text-[1.38rem]'} font-heading font-semibold ${titleClasses}`}>
         Start your project
       </h3>
 
@@ -178,9 +176,9 @@ export default function ServiceForm({ initialService, isMini = false, forceDark 
           </div>
         </div>
 
-        <textarea required name="message" placeholder="Project details..." rows={isMini ? 2 : 3} value={formData.message} onChange={handleChange} className={`w-full resize-none rounded-2xl ${inputClasses} ${isMini ? 'min-h-[84px] px-4 py-3 text-[15px] lg:min-h-[68px] lg:px-3.25 lg:py-2.25 lg:text-[13px] xl:min-h-[80px] xl:px-3.75 xl:py-2.75 xl:text-[14px]' : 'min-h-[110px] px-4 py-3.5 text-sm sm:min-h-0 sm:px-5 sm:py-4 lg:min-h-[74px] lg:px-2.75 lg:py-2.25 lg:text-[11px] xl:min-h-[84px] xl:px-3.25 xl:py-2.75 xl:text-[12px]'} font-light shadow-sm outline-none transition-all focus:border-primary/50`} />
+        <textarea required name="message" placeholder="Project details..." rows={isMini ? 2 : 3} value={formData.message} onChange={handleChange} className={`w-full resize-none rounded-2xl ${inputClasses} ${isMini ? 'min-h-[84px] px-4 py-3 text-[15px] lg:min-h-[72px] lg:px-3.5 lg:py-2.5 lg:text-[14px] xl:min-h-[84px] xl:px-4 xl:py-3 xl:text-[15px]' : 'min-h-[110px] px-4 py-3.5 text-sm sm:px-5 sm:py-4 lg:min-h-[96px] lg:px-4 lg:py-3 lg:text-[13px] xl:min-h-[104px] xl:px-5 xl:py-3.5 xl:text-sm'} font-light shadow-sm outline-none transition-all focus:border-primary/50`} />
 
-        <div className={`w-full rounded-2xl border ${recaptchaWrapClasses} ${isMini ? 'mb-1 px-2.5 py-2.5 lg:px-2 lg:py-2 xl:px-2.5 xl:py-2.5' : 'mb-3 px-2.5 py-3 sm:mb-4 sm:px-4 sm:py-4 lg:px-3 lg:py-3 xl:px-3.5 xl:py-3.5'}`}>
+        <div className={`w-full rounded-2xl border ${recaptchaWrapClasses} ${isMini ? 'mb-1 px-2.5 py-2.5 lg:px-2 lg:py-2 xl:px-2.5 xl:py-2.5' : 'mb-3 px-2.5 py-3 sm:mb-4 sm:px-4 sm:py-4'}`}>
           <div className="recaptcha-shell">
             <div className="recaptcha-frame">
               <ReCAPTCHA

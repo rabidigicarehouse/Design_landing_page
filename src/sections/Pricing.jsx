@@ -16,16 +16,16 @@ const packageServices = [
 
 const Pricing = () => {
   return (
-    <section className="section section-theme-violet overflow-hidden pt-20 pb-14 lg:pt-[6.4rem] lg:pb-10 xl:pt-[6.9rem] xl:pb-12 2xl:pt-[7.4rem] 2xl:pb-16" id="pricing">
+    <section className="section section-theme-violet flex min-h-screen items-center overflow-hidden pb-16 pt-[140px] lg:pb-20 lg:pt-[160px] xl:pb-24 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]" id="pricing">
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
 
-      <div className="container laptop-scale-pricing relative z-10 mx-auto px-6">
+      <div className="container laptop-scale-pricing relative z-10 mx-auto w-full px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-[3rem] border border-black/5 bg-[linear-gradient(145deg,rgba(255,255,255,0.98),rgba(248,250,252,0.94))] px-6 py-8 shadow-[0_28px_90px_rgba(15,23,42,0.1)] dark:border-white/8 dark:bg-[linear-gradient(145deg,rgba(10,8,26,0.98),rgba(18,16,36,0.94))] md:px-10 md:py-10 lg:min-h-[calc(100vh-8.6rem)] lg:px-10 lg:py-8 xl:min-h-[calc(100vh-9.1rem)] xl:px-12 xl:py-10 2xl:min-h-[calc(100vh-9.5rem)] 2xl:px-14 2xl:py-12"
+          className="relative overflow-hidden rounded-[3rem] border border-black/5 bg-[linear-gradient(145deg,rgba(255,255,255,0.98),rgba(248,250,252,0.94))] px-6 py-8 shadow-[0_28px_90px_rgba(15,23,42,0.1)] dark:border-white/8 dark:bg-[linear-gradient(145deg,rgba(10,8,26,0.98),rgba(18,16,36,0.94))] md:px-10 md:py-10 lg:px-10 lg:py-8 xl:px-12 xl:py-10 2xl:px-14 2xl:py-12"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.14),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.08),transparent_32%)]" />
           <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-primary/10 blur-[70px]" />
