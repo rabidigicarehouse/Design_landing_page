@@ -1,1 +1,7 @@
-take the above file as a referemce and just apply the height of the section as it in this file this is old file of our code make current tech stack height exactly like this but dont remove gsap from current apply that look above image.png you did great work by shifting the our work section bottom side shift it more so that heading and sub heading also visible when stick apply that plz
+Mobile:     0 – 767px
+Tablet:     768 – 1023px
+Laptop:     1024 – 1439px
+Desktop:    1440 – 1919px
+Large Desk: 1920px+
+
+look above image.png i want you to make the hero section content and form size scaled down for this viewport "Laptop:     1024 – 1439px" so that all the heading and the counters and form should appear completely in the viewport apply that changes all three landing pages this view port 

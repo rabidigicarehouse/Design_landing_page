@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, ArrowUpRight, MapPin } from 'lucide-react';
-import logo from '../assets/Digiicare.png';
+import lightLogo from '../assets/Digiicare.png';
+import darkLogo from '../assets/Digiicare_D.png';
 import ServiceModal from '../components/ServiceModal';
 import { servicesData } from '../data/services';
 import { socialLinks, companyPhoneDisplay, companyPhoneHref } from '../data/contact';
@@ -10,11 +11,26 @@ import { assetSrc } from '../utils/assetSrc';
 const Footer = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setIsDarkMode(root.classList.contains('dark'));
+
+    syncTheme();
+
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, []);
 
   const openService = (service) => {
     setSelectedService(service);
     setIsModalOpen(true);
   };
+
+  const currentLogo = isDarkMode ? darkLogo : lightLogo;
 
   return (
     <footer className="section-theme-rose flex min-h-screen items-center justify-center overflow-hidden border-t border-black/5 pb-10 pt-16 text-slate-900 dark:border-white/5 dark:text-light xl:pb-11 xl:pt-[4.5rem] 2xl:pb-12 2xl:pt-20">
@@ -22,7 +38,7 @@ const Footer = () => {
         <div className="mb-16 flex flex-col items-start justify-between gap-12 border-b border-black/5 pb-16 dark:border-white/5 lg:flex-row xl:mb-[4.5rem] xl:gap-14 xl:pb-[4.5rem] 2xl:mb-20 2xl:gap-16 2xl:pb-20">
           <div className="w-full max-w-md">
             <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="group mb-10 flex h-16 items-center gap-3">
-              <img src={assetSrc(logo)} alt="Digicare Design" className="h-full w-auto object-contain transition-transform group-hover:scale-105" />
+              <img src={assetSrc(currentLogo)} alt="Digicare Design" className="h-full w-auto object-contain transition-transform group-hover:scale-105" />
             </a>
             <p className="mb-10 text-xl font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400">
               An elite UI/UX & Brand Development collective. We map user chaos into stunning digital order.

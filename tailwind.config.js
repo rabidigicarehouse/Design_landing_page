@@ -9,9 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#7c3aed",
-        secondary: "#ff6b35",
+        primary: "#FDCF73",
+        secondary: "#F8F1E3",
         teal: "#2dd4bf",
+        navy: "#003366",
+        gold: "#FDCF73",
+        cream: "#F8F1E3",
         dark: {
           bg: "#06060e",
           card: "#0c0c1d"

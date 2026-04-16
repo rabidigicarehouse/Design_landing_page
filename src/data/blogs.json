@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "slug": "minimalist-branding-2026",
+    "title": "Minimalist Branding: The Silent Power of 2026",
+    "excerpt": "In an era of visual noise, learn why the most successful tech startups are pivoting towards minimalist brand identities.",
+    "category": "Design",
+    "date": "April 15, 2026",
+    "readTime": "5 min read",
+    "image": "/assets/blogs/blog_design.png",
+    "content": "<h1>The Rise of Digital Elegance</h1><p>Minimalism is not the absence of design; it is the perfect amount of it. In 2026, we are seeing a significant shift in how tech startups approach their visual identity.</p><h2>Expressive Minimalism</h2><p>The 'blanding' era is over. Today, minimalism is expressive, bold, and authoritative. It's about using space as a weapon to capture and hold attention.</p>"
+  },
+  {
+    "id": 2,
+    "slug": "color-psychology-2026",
+    "title": "Color Psychology: Emotions of the Future",
+    "excerpt": "How the curated use of color—like Navy and Gold—can subconsciously drive user trust and brand loyalty.",
+    "category": "Design",
+    "date": "April 14, 2026",
+    "readTime": "6 min read",
+    "image": "/assets/blogs/blog_design_2.png",
+    "content": "<h1>Beyond Pretty Pixels</h1><p>Color is a language that the brain speaks without words. In our design philosophy, Navy represents stability and wisdom, while Gold evokes luxury and success.</p><h2>The Dual-Palette Strategy</h2><p>Combining deep, trustworthy bases with high-energy accents creates a dynamic brand tension that keeps users engaged during their digital journey.</p>"
+  },
+  {
+    "id": 3,
+    "slug": "ui-ux-emotional-connection",
+    "title": "UI/UX: Crafting Emotional Digital Journeys",
+    "excerpt": "User experience is no longer just about utility; it's about how your product makes someone feel.",
+    "category": "Design",
+    "date": "April 13, 2026",
+    "readTime": "8 min read",
+    "image": "/assets/blogs/blog_design_3.png",
+    "content": "<h1>Humanizing the Interface</h1><p>We design for people, not screens. The subtle micro-interactions, the timing of animations, and the hierarchy of headers all contribute to the emotional arc of a user session.</p><h2>The Core of UX</h2><p>Focus on reducing friction. Every redundant click is a potential loss in conversion. Simplicity is the ultimate sophistication.</p>"
+  }
+]
