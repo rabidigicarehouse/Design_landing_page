@@ -101,7 +101,7 @@ const Hero = () => {
             >
               <span className="block">Crafting</span>
               <span className="block hero-text-gradient break-words">Artistic Brand</span>
-              <span className="mt-2 inline-block max-w-full rounded-2xl hero-identity-bg px-3.5 py-2 text-white shadow-2xl shadow-[#FDCF73]/20 break-words sm:px-6">
+              <span className="mt-2 inline-block max-w-full rounded-2xl hero-identity-bg px-3.5 py-2 text-[#07366A] shadow-2xl shadow-[#FDCF73]/20 break-words dark:text-[#07366A] sm:px-6">
                 Identity.
               </span>
             </motion.h1>
@@ -127,7 +127,7 @@ const Hero = () => {
                 </Button>
               </a>
               <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="block w-full sm:w-auto">
-                <Button variant="outline" className="w-full rounded-full border-white/20 bg-white/[0.02] px-10 py-5 text-sm font-black tracking-widest text-white uppercase hover:border-primary hover:text-primary sm:w-auto">
+                <Button variant="outline" className="w-full rounded-full border-white/20 bg-white/[0.02] px-10 py-5 text-sm font-black tracking-widest text-white uppercase transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary dark:hover:border-primary dark:hover:bg-primary/10 dark:hover:text-primary sm:w-auto">
                   Consultation
                 </Button>
               </a>

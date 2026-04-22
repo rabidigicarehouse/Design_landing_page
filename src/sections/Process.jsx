@@ -18,7 +18,7 @@ const Process = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
       <div className="container laptop-scale-section mx-auto flex w-full flex-col justify-center px-6">
-        <SectionHeading subtitle="Artistic Methodology" title="Tailored Creation" centered />
+        <SectionHeading subtitle="Artistic Methodology" title="Tailored Creation" centered subtitleClassName="text-[#0A3967] dark:text-secondary" />
 
         <div className="relative mt-10 xl:mt-12 2xl:mt-16">
           {/* Static Centered Connecting Line (Desktop) */}

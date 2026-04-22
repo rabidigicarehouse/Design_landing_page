@@ -198,7 +198,7 @@ const Portfolio = () => {
     <section className="section section-theme-rose overflow-hidden py-24 xl:py-28 2xl:py-32" id="work">
       <div className="container laptop-scale-section mx-auto px-6">
         <div className="mb-12 xl:mb-14 2xl:mb-16 flex flex-col gap-6 xl:gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeading title="Design That Speaks" subtitle="Selected Work" />
+          <SectionHeading title="Design That Speaks" subtitle="Selected Work" subtitleClassName="text-[#0A3967] dark:text-secondary" />
           <Button
             variant="outline"
             onClick={(e) => handlePrimaryContactAction(e, companyPhoneHref)}

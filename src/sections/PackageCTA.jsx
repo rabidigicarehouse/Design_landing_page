@@ -35,7 +35,7 @@ const PackageCTA = () => {
 
           <div className="relative grid gap-6 sm:gap-8 lg:grid-cols-[1.06fr_.94fr] lg:items-center lg:gap-10 xl:gap-12">
             <div>
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-5 py-2 text-[10px] font-black uppercase tracking-[0.24em] text-primary">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-5 py-2 text-[10px] font-black uppercase tracking-[0.24em] text-[#043666] dark:text-primary">
                 <Sparkles className="h-4 w-4" />
                 Tailored Creative Scope
               </div>

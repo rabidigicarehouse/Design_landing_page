@@ -5,3 +5,9 @@ Desktop:    1440 – 1919px
 Large Desk: 1920px+
 
 look above image.png i want you to make the hero section content and form size scaled down for this viewport "Laptop:     1024 – 1439px" so that all the heading and the counters and form should appear completely in the viewport apply that changes all three landing pages this view port 
+
+ckab qgvw migh dzmn
+#07366A
+I pasted the the design our work potfolio images in the folder "C:\Users\SONU COMPUTER\Desktop\rabi_work\Sales_Migration_work\Brand_pages\Main_landing_pages\Design-Agency-App\src\assets\design_portfolio" i want you to replace the our work images with these images 
+
+firstly do nothing just analyze the current structure in that i have three landing pages for design development and ai/automation the current directory is basically design landing page and in the root directory there is this folder "Ai automation landing page" this is ai/automation landing page folder and on root directory this is "Development landing page" this is development landing page code all three pages have their own backend folder and all three landing pages are temporary deployed on vercel and all three landing page are made on using nextjs i want yo to completely analyze whole structure inch by inch each and everything then let me know completely analyze structure flow everything do nothing just analyze to understand flow structure and everything perfectly so that when i give you some changes you know where to put it ok analyze everything then let me know 

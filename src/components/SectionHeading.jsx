@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const SectionHeading = ({ title, subtitle, centered = false }) => {
+const SectionHeading = ({ title, subtitle, centered = false, subtitleClassName = '' }) => {
   return (
     <div className={`mb-12 xl:mb-14 2xl:mb-16 ${centered ? 'text-center flex flex-col items-center' : ''}`}>
       <motion.div
@@ -12,7 +12,7 @@ const SectionHeading = ({ title, subtitle, centered = false }) => {
         className={`flex items-center gap-3 mb-3 xl:mb-4 ${centered ? 'justify-center' : 'justify-start'}`}
       >
         <div className="w-8 h-[2px] rounded-full bg-gradient-funky hidden sm:block" />
-        <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-secondary uppercase font-mono">
+        <span className={`text-xs sm:text-sm font-bold tracking-[0.2em] text-secondary uppercase font-mono ${subtitleClassName}`}>
           {subtitle}
         </span>
         {centered && <div className="w-8 h-[2px] rounded-full bg-gradient-funky hidden sm:block" />}
