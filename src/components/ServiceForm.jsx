@@ -118,7 +118,7 @@ export default function ServiceForm({ initialService, isMini = false, forceDark 
 
   if (status === 'success') {
     return (
-      <div className={`${isMini ? 'min-h-[320px] rounded-[1.75rem] p-6' : 'min-h-[400px] rounded-[2rem] p-8'} flex flex-col items-center justify-center border border-emerald-500/20 bg-emerald-500/10 text-center`}>
+      <div className={`${isMini ? 'min-h-[320px] rounded-[1.75rem] p-6' : 'min-h-[400px] rounded-[2rem] p-8'} flex flex-col items-center justify-center border border-emerald-500/30 bg-white dark:bg-[#0d1628] text-center shadow-[0_50px_100px_rgba(0,0,0,0.45)]`}>
         <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/20">
           <CheckCircle2 className="text-white" size={32} />
         </div>
@@ -131,18 +131,6 @@ export default function ServiceForm({ initialService, isMini = false, forceDark 
     );
   }
 
-  const effectiveDarkMode = forceDark || isDarkMode;
-  const fieldBase = isMini ? 'px-4 py-3 text-[15px] lg:px-3.5 lg:py-2.5 lg:text-[14px] xl:px-4 xl:py-3 xl:text-[15px]' : 'px-4 py-3.5 text-sm sm:px-5 sm:py-4 lg:px-3.5 lg:py-[0.6875rem] lg:text-[12.5px] xl:px-4 xl:py-3 xl:text-[13px]';
-  const shellClasses = forceDark
-    ? 'border-primary/20 bg-[#0d1628]/90 shadow-[0_50px_100px_rgba(0,0,0,0.45)]'
-    : 'border-slate-200 bg-slate-50 shadow-sm dark:border-primary/20 dark:bg-[#0d1628]/90 dark:shadow-[0_50px_100px_rgba(0,0,0,0.45)]';
-  const titleClasses = forceDark ? 'text-white' : 'text-slate-900 dark:text-white';
-  const inputClasses = forceDark
-    ? 'border border-white/10 bg-white/5 text-white placeholder:text-white/35'
-    : 'border border-slate-200 bg-white text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/35';
-  const recaptchaWrapClasses = forceDark
-    ? 'border-white/10 bg-[#091120]/90'
-    : 'border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-[#091120]/90';
 
   return (
     <div className={`${isMini ? 'h-full rounded-[1.75rem] p-4 md:rounded-[2rem] md:p-5 lg:p-4.5 xl:p-5.5' : 'rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-6 md:rounded-[2.5rem] md:p-10 lg:p-6 xl:p-7'} group relative overflow-visible border ${shellClasses}`}>
