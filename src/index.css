@@ -68,101 +68,7 @@
       linear-gradient(145deg, rgba(4, 16, 25, 0.98), rgba(7, 13, 29, 0.98) 48%, rgba(10, 20, 34, 0.96));
   }
 
-  @media (min-width: 768px) and (max-width: 990px) {
-    .section[id] {
-      padding-top: 110px !important;
-      padding-bottom: 20px !important;
-    }
-
-    .laptop-scale-navbar {
-      position: static;
-      width: 100%;
-      transform: none;
-      transform-origin: initial;
-      will-change: auto;
-    }
-
-    .laptop-scale-section {
-      position: relative;
-      width: 100%;
-      transform: scale(0.75);
-      transform-origin: top center;
-      will-change: transform;
-    }
-
-    .laptop-scale-hero {
-      position: relative;
-      width: 100%;
-      transform: scale(0.75);
-      transform-origin: left top;
-      will-change: transform;
-    }
-
-    .laptop-scale-services {
-      position: relative;
-      width: 100%;
-      transform: scale(0.75);
-      transform-origin: top center;
-      will-change: transform;
-    }
-
-    .laptop-scale-pricing {
-      position: relative;
-      width: 100%;
-      transform: scale(0.75);
-      transform-origin: top center;
-      will-change: transform;
-    }
-  }
-
-  @media (min-width: 991px) and (max-width: 1200px) {
-    .section[id] {
-      padding-top: 110px !important;
-      padding-bottom: 20px !important;
-    }
-
-    .laptop-scale-navbar {
-      position: static;
-      width: 100%;
-      transform: none;
-      transform-origin: initial;
-      will-change: auto;
-    }
-
-    .laptop-scale-section {
-      position: relative;
-      width: 100%;
-      transform: scale(0.75);
-      transform-origin: top center;
-      will-change: transform;
-    }
-
-    .laptop-scale-hero {
-      position: relative;
-      width: 100%;
-      transform: scale(0.75);
-      transform-origin: left top;
-      will-change: transform;
-    }
-
-    .laptop-scale-services {
-      position: relative;
-      width: 100%;
-      transform: scale(0.75);
-      transform-origin: top center;
-      will-change: transform;
-    }
-
-    .laptop-scale-pricing {
-      position: relative;
-      width: 100%;
-      transform: scale(0.75);
-      transform-origin: top center;
-      will-change: transform;
-    }
-  }
-
-  @media (min-width: 1201px) and (max-width: 1366px) {
+  @media (min-width: 1025px) and (max-width: 1366px) {
     .laptop-scale-navbar {
       position: static;
       width: 100%;
@@ -183,7 +89,7 @@
       position: relative;
       width: 100%;
       transform: scale(0.86);
-      transform-origin: left top;
+      transform-origin: top center;
       will-change: transform;
     }
 
@@ -225,7 +131,7 @@
       position: relative;
       width: 100%;
       transform: scale(0.91);
-      transform-origin: left top;
+      transform-origin: top center;
       will-change: transform;
     }
 
@@ -267,7 +173,7 @@
       position: relative;
       width: 100%;
       transform: scale(0.89);
-      transform-origin: left top;
+      transform-origin: top center;
       will-change: transform;
     }
 
