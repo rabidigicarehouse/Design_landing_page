@@ -64,7 +64,7 @@ const Hero = () => {
           disablePictureInPicture
           disableRemotePlayback
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,4,16,0.58)_0%,rgba(7,4,16,0.42)_28%,rgba(7,4,16,0.66)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,4,16,0.45)_0%,rgba(7,4,16,0.25)_28%,rgba(7,4,16,0.55)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.16),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.14),transparent_32%),radial-gradient(circle_at_center,rgba(249,115,22,0.12),transparent_42%)]" />
       </div>
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff14_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:60px_60px] opacity-25" />
