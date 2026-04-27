@@ -3,38 +3,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Fingerprint, Quote } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 
-import matthewImg from '../assets/Testimonials_clients/Matthew.png';
-import rickImg from '../assets/Testimonials_clients/Rick cruz.jpeg';
-import amandaImg from '../assets/Testimonials_clients/Amanda.jpg';
-import georgeImg from '../assets/Testimonials_clients/George.jpeg';
-import googleLogo from '../assets/google.png';
-import verifiedBadge from '../assets/verified.png';
-import { assetSrc } from '../utils/assetSrc';
-
 const testimonials = [
   {
     name: "Matthew Jacobs",
     role: "Owner, Health Beyond Hype",
     text: "Reliability and communication. Digicarehouse has demonstrated this time and again with our project updates.",
-    image: assetSrc(matthewImg)
+    image: '/assets/Testimonials_clients/Matthew.png'
   },
   {
     name: "Rick Cruz",
     role: "Founder, Bestway RV",
     text: "Top-notch delivery and technical support. Working with Digicarehouse has been a great experience.",
-    image: assetSrc(rickImg)
+    image: '/assets/Testimonials_clients/Rick cruz.jpeg'
   },
   {
     name: "Amanda Parsi",
     role: "The Gateway Co.",
     text: "It's been a pleasure working with Digicarehouse on The Getaway Co.'s website for the past few years. Truly professional.",
-    image: assetSrc(amandaImg)
+    image: '/assets/Testimonials_clients/Amanda.jpg'
   },
   {
     name: "George Grombacher",
     role: "Founder, Lifeblood",
     text: "What truly distinguishes Digicarehouse is their commitment to excellence and high level of expertise.",
-    image: assetSrc(georgeImg)
+    image: '/assets/Testimonials_clients/George.jpeg'
   }
 ];
 
@@ -57,7 +49,7 @@ const Testimonials = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 className="inline-flex items-center mb-8"
               >
-                <img src={assetSrc(googleLogo)} alt="Google" className="h-10 w-auto object-contain" />
+                <img src="/assets/google.png" alt="Google" className="h-10 w-auto object-contain" />
               </motion.div>
               <h2 className="text-5xl xl:text-[3.6rem] 2xl:text-6xl font-black font-heading tracking-tighter uppercase mb-8 xl:mb-9 2xl:mb-10 dark:text-white text-slate-950 leading-[0.8]">
                  Satisfied <br />
@@ -97,7 +89,7 @@ const Testimonials = () => {
                         <div className="flex gap-1">
                            {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#FBBC04] text-[#FBBC04]" />)}
                         </div>
-                        <img src={assetSrc(verifiedBadge)} alt="Verified" className="w-6 h-6 object-contain" />
+                        <img src="/assets/verified.png" alt="Verified" className="w-6 h-6 object-contain" />
                       </div>
 
                       <p className="text-2xl md:text-4xl xl:text-[2rem] 2xl:text-4xl dark:text-white text-slate-950 font-black italic leading-[1.1] mb-10 xl:mb-11 2xl:mb-12 tracking-tighter uppercase">

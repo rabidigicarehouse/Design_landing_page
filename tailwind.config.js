@@ -10,11 +10,11 @@ export default {
     extend: {
       colors: {
         primary: "#FDCF73",
-        secondary: "#F8F1E3",
-        teal: "#2dd4bf",
+        secondary: "#d0a75aff",
+        teal: "#FCD382",
         navy: "#003366",
         gold: "#FDCF73",
-        cream: "#F8F1E3",
+        cream: "#d0a75aff",
         dark: {
           bg: "#06060e",
           card: "#0c0c1d"

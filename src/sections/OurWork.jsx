@@ -2,21 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
 
-import portfolioOne from '../assets/design_portfolio/a5bf4f239646887.692e04fcd0c6e.jpg';
-import portfolioTwo from '../assets/design_portfolio/a9a8ae239720711.692f553dcadf2.jpg';
-import portfolioThree from '../assets/design_portfolio/b0057d239641383.692debbbf2181.jpg';
-import portfolioFour from '../assets/design_portfolio/c788f3239720711.692f553f784fa.jpg';
-import portfolioFive from '../assets/design_portfolio/d52d05239642027.692dee685f6e5.jpg';
-import portfolioSix from '../assets/design_portfolio/fc509b239646887.692e04fccfb71.jpg';
-import { assetSrc } from '../utils/assetSrc';
-
 const workFrames = [
-  { image: assetSrc(portfolioOne), alt: 'Design portfolio showcase one' },
-  { image: assetSrc(portfolioTwo), alt: 'Design portfolio showcase two' },
-  { image: assetSrc(portfolioThree), alt: 'Design portfolio showcase three' },
-  { image: assetSrc(portfolioFour), alt: 'Design portfolio showcase four' },
-  { image: assetSrc(portfolioFive), alt: 'Design portfolio showcase five' },
-  { image: assetSrc(portfolioSix), alt: 'Design portfolio showcase six' },
+  { image: '/assets/design_portfolio/a5bf4f239646887.692e04fcd0c6e.jpg', alt: 'Design portfolio showcase one' },
+  { image: '/assets/design_portfolio/a9a8ae239720711.692f553dcadf2.jpg', alt: 'Design portfolio showcase two' },
+  { image: '/assets/design_portfolio/b0057d239641383.692debbbf2181.jpg', alt: 'Design portfolio showcase three' },
+  { image: '/assets/design_portfolio/c788f3239720711.692f553f784fa.jpg', alt: 'Design portfolio showcase four' },
+  { image: '/assets/design_portfolio/d52d05239642027.692dee685f6e5.jpg', alt: 'Design portfolio showcase five' },
+  { image: '/assets/design_portfolio/fc509b239646887.692e04fccfb71.jpg', alt: 'Design portfolio showcase six' },
 ];
 
 const reelFrames = [...workFrames, ...workFrames];
