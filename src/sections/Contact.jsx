@@ -42,8 +42,8 @@ const Contact = () => {
             </motion.div>
 
             <h2 className="font-heading mb-7 text-[3.4rem] font-black tracking-tighter text-slate-950 uppercase leading-[0.8] dark:text-white sm:text-6xl md:mb-9 md:text-8xl lg:text-[2.85rem] xl:text-[3.28rem] 2xl:text-8xl">
-              Born for <br />
-              <span className="text-gradient italic">Creation.</span>
+              Built to <br />
+              <span className="text-gradient italic">Create.</span>
             </h2>
 
             <p className="mb-8 text-lg font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 sm:mb-16 sm:text-xl lg:text-[0.84rem] xl:text-[0.92rem] 2xl:text-2xl">

@@ -225,9 +225,9 @@
     }
 
     .panel-shell[data-panel-id="packages"] > section,
+    .panel-shell[data-panel-id="testimonials"] > section,
     .panel-shell[data-panel-id="our-work"] > section,
-    .panel-shell[data-panel-id="contact"] > section,
-    .panel-shell[data-panel-id="footer"] > footer {
+    .panel-shell[data-panel-id="contact"] > section {
       padding-top: 80px !important;
       padding-bottom: 16px !important;
       min-height: 100svh;
@@ -259,7 +259,8 @@
       justify-content: center;
     }
 
-    .panel-shell[data-panel-id="contact"] .laptop-scale-section {
+    .panel-shell[data-panel-id="contact"] .laptop-scale-section,
+    .panel-shell[data-panel-id="testimonials"] .laptop-scale-section {
       position: relative;
       width: 100%;
       transform: scale(0.72);
@@ -274,9 +275,17 @@
     .panel-shell[data-panel-id="footer"] .laptop-scale-section {
       position: relative;
       width: 100%;
-      transform: scale(0.72);
+      transform: scale(0.64);
       transform-origin: top center;
       will-change: transform;
+    }
+
+    .panel-shell[data-panel-id="footer"] > footer {
+      padding-top: 72px !important;
+      padding-bottom: 8px !important;
+      min-height: calc(100svh - 12px);
+      display: flex;
+      align-items: flex-start;
     }
 
     .panel-shell[data-panel-id="process"] .laptop-scale-section,
@@ -284,6 +293,14 @@
     .panel-shell[data-panel-id="cta"] .laptop-scale-section {
       transform: scale(0.72);
       transform-origin: top center;
+    }
+
+    .panel-shell[data-panel-id="cta"] > section {
+      padding-top: 80px !important;
+      padding-bottom: 16px !important;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-start;
     }
 
     /* Services section - stick below header */
@@ -327,19 +344,27 @@
       align-items: center !important;
       justify-content: center !important;
     }
+
   }
 
   @media (min-width: 1921px) and (min-height: 1081px) {
 
     .panel-shell[data-panel-id="process"]>section,
     .panel-shell[data-panel-id="testimonials"]>section,
-    .panel-shell[data-panel-id="cta"]>section,
-    .panel-shell[data-panel-id="footer"]>footer {
+    .panel-shell[data-panel-id="cta"]>section {
       display: flex;
       align-items: center;
       justify-content: center;
       padding-top: 2rem;
       padding-bottom: 2rem;
+    }
+
+    .panel-shell[data-panel-id="footer"]>footer {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
     }
 
     .panel-shell[data-panel-id="process"]>section>.container,
@@ -407,6 +432,7 @@ body {
 .panel-shell[data-panel-id="tech"]>section {
   min-height: auto;
 }
+
 
 ::-webkit-scrollbar {
   width: 8px;

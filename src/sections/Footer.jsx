@@ -30,14 +30,14 @@ const Footer = () => {
   const currentLogo = isDarkMode ? '/assets/Digiicare_D.png' : '/assets/Digiicare.png';
 
   return (
-    <footer className="section-theme-rose flex min-h-screen items-center justify-center overflow-hidden border-t border-black/5 pb-10 pt-16 text-slate-900 dark:border-white/5 dark:text-light xl:pb-11 xl:pt-[4.5rem] 2xl:pb-12 2xl:pt-20">
-      <div className="container laptop-scale-section relative z-10 mx-auto flex w-full flex-col justify-center px-6">
-        <div className="mb-16 flex flex-col items-start justify-between gap-12 border-b border-black/5 pb-16 dark:border-white/5 lg:flex-row xl:mb-[4.5rem] xl:gap-14 xl:pb-[4.5rem] 2xl:mb-20 2xl:gap-16 2xl:pb-20">
+    <footer className="footer-shell section-theme-rose flex items-start justify-start overflow-visible border-t border-black/5 pb-6 pt-12 text-slate-900 dark:border-white/5 dark:text-light max-[1280px]:pb-4 max-[1280px]:pt-9 xl:pb-8 xl:pt-14 2xl:pb-10 2xl:pt-16">
+      <div className="container relative z-10 mx-auto flex w-full flex-col justify-start px-5 md:px-6 xl:px-8">
+        <div className="mb-12 flex flex-col items-start justify-between gap-10 border-b border-black/5 pb-12 dark:border-white/5 max-[1280px]:mb-8 max-[1280px]:gap-7 max-[1280px]:pb-8 lg:flex-row xl:mb-14 xl:gap-12 xl:pb-14 2xl:mb-16 2xl:gap-14 2xl:pb-16">
           <div className="w-full max-w-md">
-            <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="group mb-10 flex h-16 items-center gap-3">
+            <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="group mb-8 flex h-16 items-center gap-3 max-[1280px]:mb-6 max-[1280px]:h-12">
               <img src={currentLogo} alt="Digicare Design" className="h-full w-auto object-contain transition-transform group-hover:scale-105" />
             </a>
-            <p className="mb-10 text-xl font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400">
+            <p className="mb-8 text-lg font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 max-[1280px]:mb-6 max-[1280px]:text-[15px] max-[1280px]:leading-7 xl:text-[1.05rem]">
               An elite UI/UX & Brand Development collective. We map user chaos into stunning digital order.
             </p>
             <div className="flex gap-4">
@@ -57,8 +57,8 @@ const Footer = () => {
 
           <div className="grid w-full grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-[minmax(0,1.5fr)_minmax(0,.8fr)_minmax(0,1fr)] lg:w-auto">
             <div className="min-w-0">
-              <h4 className="mb-10 text-xs font-black uppercase tracking-widest text-slate-950/70 dark:text-white/70">Services</h4>
-              <ul className="grid grid-cols-1 gap-x-12 gap-y-5 text-sm font-light sm:grid-cols-2">
+              <h4 className="mb-8 text-xs font-black uppercase tracking-widest text-slate-950/70 dark:text-white/70 max-[1280px]:mb-6 max-[1280px]:text-[10px]">Services</h4>
+              <ul className="grid grid-cols-1 gap-x-10 gap-y-4 text-sm font-light max-[1280px]:gap-x-7 max-[1280px]:gap-y-3 max-[1280px]:text-[12px] sm:grid-cols-2">
                 {servicesData.map((service) => (
                   <li key={service.title}>
                     <button onClick={() => openService(service)} className="inline-flex max-w-full text-left text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 font-bold uppercase tracking-tight leading-tight hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">
@@ -70,18 +70,18 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="mb-10 text-xs font-black uppercase tracking-widest text-slate-950/70 dark:text-white/70">Agency</h4>
-              <ul className="flex flex-col gap-6 text-sm font-light">
+              <h4 className="mb-8 text-xs font-black uppercase tracking-widest text-slate-950/70 dark:text-white/70 max-[1280px]:mb-6 max-[1280px]:text-[10px]">Agency</h4>
+              <ul className="flex flex-col gap-5 text-sm font-light max-[1280px]:gap-4 max-[1280px]:text-[12px]">
                 <li><a href="#services" onClick={(e) => handleScrollTo(e, '#services')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Our Experiments</a></li>
                 <li><a href="#process" onClick={(e) => handleScrollTo(e, '#process')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Methodology</a></li>
-                <li><a href="#work" onClick={(e) => handleScrollTo(e, '#work')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Case Studies</a></li>
-                <li><a href="#pricing" onClick={(e) => handleScrollTo(e, '#pricing')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Investments</a></li>
+                <li><a href="#our-work" onClick={(e) => handleScrollTo(e, '#our-work')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Our Work</a></li>
+                <li><a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.28)]">Contact</a></li>
               </ul>
             </div>
 
             <div className="md:col-span-2 xl:col-span-1">
-              <h4 className="mb-10 text-xs font-black uppercase tracking-widest text-slate-950/70 dark:text-white/70">Agency Info</h4>
-              <div className="flex flex-col gap-4">
+              <h4 className="mb-8 text-xs font-black uppercase tracking-widest text-slate-950/70 dark:text-white/70 max-[1280px]:mb-6 max-[1280px]:text-[10px]">Agency Info</h4>
+              <div className="flex flex-col gap-3 max-[1280px]:text-[12px]">
                 <a href="https://maps.google.com/?q=BEST-CFO%2099%20Wallstreet%20New%20York%20NY%2010005" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-sm font-bold text-primary">
                   <MapPin size={18} /> BEST-CFO - 99 WALLSTREET, NEW YORK.NY 10005
                   <ArrowUpRight size={14} className="opacity-0 transition-opacity group-hover:opacity-100" />
@@ -99,11 +99,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 md:flex-row">
-          <p>&copy; {new Date().getFullYear()} Digicare Design Agency.</p>
-          <div className="mt-6 flex gap-10 md:mt-0">
-            <a href="#" className="transition-colors hover:text-primary">Digital Privacy</a>
-            <a href="#" className="transition-colors hover:text-primary">Client Terms</a>
+        <div className="flex flex-col items-center justify-between text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 max-[1280px]:text-[10px] md:flex-row">
+          <p>&copy; {new Date().getFullYear()} Design Hands.</p>
+          <div className="mt-4 flex flex-wrap gap-6 md:mt-0">
+            <span className="rounded-full border border-black/10 px-4 py-2 text-[10px] tracking-[0.18em] dark:border-white/10">Digital Privacy</span>
+            <span className="rounded-full border border-black/10 px-4 py-2 text-[10px] tracking-[0.18em] dark:border-white/10">Client Terms</span>
           </div>
         </div>
       </div>

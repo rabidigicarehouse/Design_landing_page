@@ -1,7 +1,7 @@
 export const companyPhoneDisplay = '+1 (848) 384 3773';
 export const companyPhoneHref = 'tel:+18483843773';
 export const stickyCallLabel = 'Call Now';
-export const stickyBarClass = 'bg-[linear-gradient(90deg,#4c1d95,#6d28d9)]';
+export const stickyBarClass = 'bg-[#FDCF73] !text-[#003467]';
 
 export const socialLinks = [
   {

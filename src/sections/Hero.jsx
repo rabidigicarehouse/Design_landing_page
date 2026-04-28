@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Button from '../components/Button';
@@ -13,10 +13,37 @@ const stats = [
 
 const Hero = () => {
   const heroVideoRef = useRef(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    let idleId = null;
+    let timeoutId = null;
+
+    const loadVideo = () => setShouldLoadVideo(true);
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const saveData = navigator.connection?.saveData;
+    const delay = prefersReducedMotion || saveData ? 1400 : 700;
+
+    if ('requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(loadVideo, { timeout: delay });
+    } else {
+      timeoutId = window.setTimeout(loadVideo, delay);
+    }
+
+    return () => {
+      if (idleId !== null && 'cancelIdleCallback' in window) {
+        window.cancelIdleCallback(idleId);
+      }
+
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const video = heroVideoRef.current;
-    if (!video) return;
+    if (!video || !shouldLoadVideo) return;
 
     const syncPlayback = () => {
       video.defaultPlaybackRate = 2;
@@ -45,7 +72,7 @@ const Hero = () => {
       video.removeEventListener('stalled', syncPlayback);
       document.removeEventListener('visibilitychange', resumePlayback);
     };
-  }, []);
+  }, [shouldLoadVideo]);
 
   return (
     <section id="hero" className="section relative flex min-h-screen items-center overflow-hidden pb-[90px] pt-[216px] sm:pb-[120px] sm:pt-[145px] md:pb-[150px] lg:pt-[98px] xl:pt-[106px] 2xl:pt-[180px] lg:pb-[52px] xl:pb-[62px] 2xl:pb-[170px]">
@@ -53,12 +80,12 @@ const Hero = () => {
         <video
           ref={heroVideoRef}
           className="h-full w-full object-cover"
-          src="/assets/Animated_gif/hero.mp4"
+          src={shouldLoadVideo ? '/assets/Animated_gif/hero.mp4' : undefined}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload={shouldLoadVideo ? 'metadata' : 'none'}
           disablePictureInPicture
           disableRemotePlayback
         />
@@ -97,10 +124,10 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.08 }}
               className="mb-5 max-w-full text-[2.95rem] font-black uppercase leading-[0.92] tracking-tight text-white sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[3.15rem] xl:text-[3.55rem] 2xl:text-8xl"
             >
-              <span className="block">Crafting</span>
-              <span className="block text-gradient break-words">Artistic Brand</span>
-              <span className="mt-2 inline-block max-w-full rounded-2xl bg-primary px-3.5 py-2 text-white shadow-2xl shadow-primary/20 break-words sm:px-6">
-                Identity.
+              <span className="block">Best Custom</span>
+              <span className="block text-gradient break-words">Graphic Design</span>
+              <span className="mt-2 inline-block max-w-full rounded-2xl bg-primary px-3.5 py-2 text-[#003467] shadow-2xl shadow-primary/20 break-words sm:px-6">
+                Services
               </span>
             </motion.h1>
 
@@ -110,7 +137,7 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.16 }}
               className="mb-5 max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg lg:max-w-[22rem] lg:text-[0.86rem] xl:mb-7 xl:max-w-[24rem] xl:text-[0.92rem] 2xl:max-w-xl 2xl:text-xl"
             >
-              The Design Hands sculpt premium visual journeys, stunning digital art, and brand systems that leave a lasting impression.
+              Looking for top-notch custom graphic design services? Our affordable and trusted solutions cater to all your design needs, from logos to marketing materials.
             </motion.p>
 
             <motion.div
@@ -119,7 +146,7 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.24 }}
               className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row"
             >
-              <a href="#work" onClick={(e) => handleScrollTo(e, '#work')} className="block w-full sm:w-auto">
+              <a href="#our-work" onClick={(e) => handleScrollTo(e, '#our-work')} className="block w-full sm:w-auto">
                 <Button variant="primary" className="group w-full rounded-full px-10 py-5 text-sm font-black uppercase tracking-widest shadow-[0_0_24px_rgba(255,122,24,0.24)] hover:shadow-[0_0_38px_rgba(255,61,129,0.34)] sm:w-auto">
                   Explore Work <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>

@@ -6,7 +6,7 @@ import { handleScrollTo } from '../utils/scrollTo';
 
 const CTA = () => {
   return (
-    <section className="section section-theme-aqua flex min-h-screen items-center overflow-hidden py-16 xl:py-20 2xl:py-20" id="cta">
+    <section className="section section-theme-aqua flex min-h-screen items-center overflow-hidden pb-16 pt-[140px] lg:pt-[160px] xl:pb-20 xl:pt-[180px] 2xl:pb-20 2xl:pt-[190px]" id="cta">
       {/* Dynamic colorful blur backgrounds */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] h-full pointer-events-none flex justify-between z-0">
         <div className="w-[400px] h-[400px] bg-primary/30 rounded-full blur-[150px] mix-blend-screen" />
@@ -35,8 +35,8 @@ const CTA = () => {
             </motion.div>
 
             <h2 className="text-4xl md:text-6xl xl:text-[3.8rem] 2xl:text-6xl font-black tracking-tight dark:text-white text-slate-950 mb-5 xl:mb-6 font-heading">
-              Let's create something <br />
-              <span className="text-gradient">extraordinary.</span>
+              Let&apos;s make something <br />
+              <span className="text-gradient">great together.</span>
             </h2>
             
             <p className="text-lg xl:text-[1.15rem] 2xl:text-xl dark:text-gray-400 text-slate-600 max-w-2xl mx-auto mb-10 xl:mb-11 2xl:mb-12 font-light">

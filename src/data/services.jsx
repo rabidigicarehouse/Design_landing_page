@@ -8,8 +8,8 @@ export const servicesData = [
   {
     icon: <MousePointer2 className="w-8 h-8 text-primary" />,
     title: 'UI/UX Design',
-    desc: 'Award-winning interfaces that captivate users and crush conversion goals.',
-    details: 'Our approach to UI/UX design merges aesthetics with behavioral psychology. We create frictionless user journeys that transform passive visitors into loyal customers through pixel-perfect precision and empathetic design systems.',
+    desc: 'Creating interfaces and experiences that are simple, consistent, and transparent.',
+    details: 'The development of our custom graphic design services has made us the central focus of our UI/UX design, whereby every interface is designed to provide clarity, engagement, and smooth usability.',
     applicability: 'Best for complex SaaS platforms, high-traffic consumer web apps, and any digital product where user retention is the primary success metric.',
     features: ['User Journey Mapping', 'High-Fidelity Prototyping', 'Design Systems (Figma)', 'Accessibility Audits'],
     tech: [
@@ -21,9 +21,9 @@ export const servicesData = [
   },
   {
     icon: <Palette className="w-8 h-8 text-pink-500" />,
-    title: 'Brand Identity',
-    desc: 'Memorable brand guidelines, bold typography, and strategic visual systems.',
-    details: 'We build brands that tell stories. From custom logo marks and color theory to comprehensive brand books and tone-of-voice guidelines, we ensure your agency leaves a lasting impression in the saturated digital marketplace.',
+    title: 'Brand Identity Design',
+    desc: 'Developing visual identity systems such as logos, colors, and typographies to ensure brand consistency.',
+    details: 'We develop powerful and memorable brand identities that perfectly match your online existence. In the USA, as part of our custom graphic design services.',
     applicability: 'Best for startups looking for a competitive edge, established brands undergoing a refresh, and companies requiring a unified visual language.',
     features: ['Logo Typography', 'Color Theory Strategy', 'Brand Guidelines', 'Marketing Collateral'],
     tech: [
@@ -35,9 +35,9 @@ export const servicesData = [
   },
   {
     icon: <Globe className="w-8 h-8 text-indigo-400" />,
-    title: 'Web Experiences',
-    desc: 'WebGL heavy, GSAP animated smooth scrolling websites that stand out.',
-    details: 'We blend the line between art and technology. Our interactive web experiences utilize advanced shader languages, physics-based animations, and fluid typography to create digital architecture that wows your audience.',
+    title: 'Web Experiences Design',
+    desc: 'Creating website interfaces and layouts that enhance usability and interaction.',
+    details: 'We create interactive web layouts that are immersive and beyond traditional layouts. We are creative and tech-savvy to produce visually enriched, responsive, and SEO-friendly websites.',
     applicability: 'Best for luxury brand portfolios, creative agencies, and product launches that require a "wow" factor beyond standard layouts.',
     features: ['GSAP & Three.js', 'WebGL Shaders', 'Immersive Storytelling', 'Micro-interactions'],
     tech: [
@@ -50,8 +50,8 @@ export const servicesData = [
   {
     icon: <Smartphone className="w-8 h-8 text-emerald-400" />,
     title: 'App Design',
-    desc: 'Mobile-first design systems centered around gesture, motion, and tactility.',
-    details: 'Designing for the palm of the hand requires a different DNA. We focus strictly on thumb-zone aesthetics, native gesture flows, and satisfying tactile feedback to make your mobile application feel like an extension of the user.',
+    desc: 'Developing both mobile and web applications with usability in mind.',
+    details: 'In the USA, we create user-friendly interfaces and performance-based interfaces, which make your application compatible with the current trends in the field of web and application development services.',
     applicability: 'Best for iOS and Android applications, fitness trackers, social networks, and real-time mobile tools.',
     features: ['Haptic Feedback Maps', 'Gesture Control Design', 'Mobile Components', 'Navigation Patterns'],
     tech: [
@@ -64,8 +64,8 @@ export const servicesData = [
   {
     icon: <Sparkles className="w-8 h-8 text-orange-400" />,
     title: 'Motion Design',
-    desc: 'Dynamic animations that breathe life into static interfaces and brands.',
-    details: 'Motion is the heartbeat of modern design. We craft sophisticated motion languages from loading sequences to interactive UI state changes that guide the user and provide a premium, alive feel to every interaction.',
+    desc: 'Incorporating interactivity and visual effects with the use of animations and transitions.',
+    details: 'Motion design is the life of interfaces. Motion design is one of the essential components of our web development services in the USA to make digital products dynamic and interactive.',
     applicability: 'Best for software marketing videos, complex data visualization, and websites that want to feel high-end and interactive.',
     features: ['Lottie Animations', 'SVG Morphing', 'Keyframe Precision', 'Video Production'],
     tech: [
@@ -78,8 +78,8 @@ export const servicesData = [
   {
     icon: <Layout className="w-8 h-8 text-yellow-400" />,
     title: 'E-Commerce Design',
-    desc: 'Conversion-optimized storefronts that turn browsing into shopping.',
-    details: 'E-commerce is a science of trust. We design checkout flows, product galleries, and cart experiences that remove every ounce of friction, focusing on high-resolution visuals and psychological triggers that drive sales.',
+    desc: 'Development of online shops with organized product layouts, navigation, and checkout.',
+    details: 'We create converting e-commerce experiences that are visually appealing and user-friendly. Our e-commerce design services aim for easy navigation, safe checkout, and efficient product display.',
     applicability: 'Best for Shopify Plus retailers, high-end fashion brands, and direct-to-consumer (D2C) marketplaces.',
     features: ['Checkout UX Audit', 'Product Storytelling', 'Cart Interaction', 'Mobile Commerce'],
     tech: [
@@ -92,8 +92,8 @@ export const servicesData = [
   {
     icon: <Layout className="w-8 h-8 text-sky-400" />,
     title: 'Landing Page Design',
-    desc: 'High-converting campaign pages crafted to turn attention into qualified demand.',
-    details: 'We design landing pages that blend brand storytelling, conversion psychology, and sharp visual hierarchy. Every section is shaped to guide the visitor toward one clear action without friction.',
+    desc: 'Designing focused pages that are aimed at a certain action that the user should take.',
+    details: 'We create performance and conversion-based landing pages. Our landing pages are focused, fast-loading, and SEO-optimized to attract attention and take action, which is why they are an important component of our web development services in the USA.',
     applicability: 'Best for product launches, paid ad funnels, lead generation campaigns, and service businesses that need focused high-performance pages.',
     features: ['Hero Conversion Design', 'Offer Positioning', 'Lead Capture UX', 'A/B Ready Layouts'],
     tech: [
@@ -105,9 +105,9 @@ export const servicesData = [
   },
   {
     icon: <Component className="w-8 h-8 text-cyan-400" />,
-    title: 'Design Systems',
-    desc: 'Scalable UI kits and foundations that keep products consistent as they grow.',
-    details: 'We build robust design systems with reusable components, typography rules, spacing logic, interaction patterns, and governance guidance so product teams can move faster with consistency.',
+    title: 'Systems Design',
+    desc: 'Designing systems to be consistent across digital products.',
+    details: 'Our systems design methodology is favorable to both long-term growth and efficiency, and thus, you can more easily grow your digital productions through our site development service in the USA.',
     applicability: 'Best for growing SaaS products, multi-team organizations, and redesign projects that need structure before scale.',
     features: ['Component Libraries', 'Token Architecture', 'Usage Guidelines', 'Cross-Team Consistency'],
     tech: [
@@ -118,24 +118,10 @@ export const servicesData = [
     ]
   },
   {
-    icon: <Component className="w-8 h-8 text-blue-400" />,
-    title: 'UI Kit Design',
-    desc: 'Polished component libraries and interface kits built for fast product execution.',
-    details: 'We create versatile UI kits that combine consistency, speed, and visual quality. From buttons and cards to modular dashboards and mobile patterns, every element is crafted to feel cohesive and production-ready.',
-    applicability: 'Best for product teams building fast, agencies handing off to developers, and founders needing a reliable design foundation.',
-    features: ['Reusable UI Blocks', 'Atomic Components', 'Responsive Patterns', 'Developer-Friendly Handoff'],
-    tech: [
-      { name: 'Figma Libraries', icon: <Layers size={20} /> },
-      { name: 'Variants', icon: <Component size={20} /> },
-      { name: 'Auto Layout', icon: <Layout size={20} /> },
-      { name: 'Specs', icon: <Eye size={20} /> }
-    ]
-  },
-  {
     icon: <PenTool className="w-8 h-8 text-rose-400" />,
     title: 'Pitch Deck Design',
-    desc: 'Investor and sales decks that turn complex ideas into persuasive visual narratives.',
-    details: 'We translate raw information into presentation systems that feel premium, persuasive, and easy to follow. The result is a deck that supports confidence in the room and clarity on the screen.',
+    desc: 'Creation of presentation slides so that ideas and information are clearly conveyed.',
+    details: 'We create pitch decks that are visually attractive and convey your ideas most effectively. Our pitch deck design will elevate your storytelling, regardless of whether it is to investors or clients, and will supplement your overarching digital strategy in our web development work in the USA.',
     applicability: 'Best for startups raising capital, founders pitching partnerships, and agencies presenting strategy or campaign concepts.',
     features: ['Narrative Flow', 'Data Storytelling', 'Slide Systems', 'Presentation Polish'],
     tech: [
@@ -148,8 +134,8 @@ export const servicesData = [
   {
     icon: <Globe className="w-8 h-8 text-fuchsia-400" />,
     title: 'Web 3.0 Design',
-    desc: 'Future-facing digital experiences for blockchain, NFT, and tokenized product ecosystems.',
-    details: 'We design immersive Web3 interfaces that balance innovation with clarity. Wallet flows, token dashboards, launch pages, and community-first ecosystems are shaped to feel advanced without confusing users.',
+    desc: 'Developing interfaces of blockchain and decentralized applications.',
+    details: 'We develop decentralized platform-specific next-generation digital experiences. Our Web 3.0 design services are oriented towards innovation, interactivity, and future-ready solutions to keep your brand ahead in the changing landscape of web development services within the USA.',
     applicability: 'Best for NFT projects, blockchain startups, metaverse concepts, and crypto products that need trust and visual sophistication.',
     features: ['Wallet UX', 'Token Dashboards', 'Community Landing Pages', 'NFT Showcase Design'],
     tech: [
@@ -160,10 +146,24 @@ export const servicesData = [
     ]
   },
   {
+    icon: <Component className="w-8 h-8 text-blue-400" />,
+    title: 'UI Kit Design',
+    desc: 'Designing reusable UI components to develop efficient and consistent designs.',
+    details: 'Our design services offer reusable building blocks and design items, which accelerate development and ensure consistency. This is the necessary kit for scalable and efficient development of websites in the USA, so that you can be sure that each detail will correspond to your brand.',
+    applicability: 'Best for product teams building fast, agencies handing off to developers, and founders needing a reliable design foundation.',
+    features: ['Reusable UI Blocks', 'Atomic Components', 'Responsive Patterns', 'Developer-Friendly Handoff'],
+    tech: [
+      { name: 'Figma Libraries', icon: <Layers size={20} /> },
+      { name: 'Variants', icon: <Component size={20} /> },
+      { name: 'Auto Layout', icon: <Layout size={20} /> },
+      { name: 'Specs', icon: <Eye size={20} /> }
+    ]
+  },
+  {
     icon: <Smartphone className="w-8 h-8 text-violet-400" />,
     title: 'Vision Pro UX',
-    desc: 'Spatial interface concepts designed for immersive next-generation product experiences.',
-    details: 'We explore spatial navigation, depth-aware interaction patterns, and immersive content framing to create interface systems suited for emerging mixed-reality platforms.',
+    desc: 'Designing spatial user experiences for mixed reality environments.',
+    details: 'We create interactive user experiences on advanced systems such as Vision Pro. We are concentrating on a spatial design, intuitive interface, and futuristic usability, which are consistent with the state-of-the-art web development services in the USA.',
     applicability: 'Best for innovation labs, future-product concepts, premium demos, and brands exploring spatial computing experiences.',
     features: ['Spatial Journeys', 'Depth UI Patterns', 'Immersive Prototypes', 'VisionOS Concepts'],
     tech: [
@@ -176,8 +176,8 @@ export const servicesData = [
   {
     icon: <Smartphone className="w-8 h-8 text-lime-400" />,
     title: 'Watch App UX',
-    desc: 'Compact wearable flows optimized for glanceability, speed, and tap efficiency.',
-    details: 'We design watch experiences around ultra-clear hierarchy, quick actions, and micro-interactions that feel native on the wrist while still carrying strong brand character.',
+    desc: 'Designing simplified interfaces for wearable devices with limited screen space.',
+    details: 'Our watch app UX design services deliver compact, efficient, and user-friendly interfaces tailored for wearable devices. We ensure smooth performance and usability, extending your digital presence through our comprehensive website development services in the USA.',
     applicability: 'Best for fitness products, health tools, utility apps, and brands building connected mobile-plus-wearable ecosystems.',
     features: ['Glanceable Screens', 'Quick Actions', 'Complication Design', 'Wearable Flows'],
     tech: [
@@ -189,9 +189,9 @@ export const servicesData = [
   },
   {
     icon: <Layers className="w-8 h-8 text-amber-400" />,
-    title: 'Figma Experts',
-    desc: 'High-speed expert Figma support for redesigns, systems, product polish, and team handoff.',
-    details: 'When teams need advanced Figma execution, we step in with high-precision file structure, scalable components, prototype logic, and cleanup that makes collaboration smoother across design and development.',
+    title: 'Figma Experts Design',
+    desc: 'Designing and maintaining design files, prototypes, and systems with the aid of Figma.',
+    details: 'Our Figma experts create high-quality, collaborative design systems and prototypes. From wireframes to final UI, we use Figma to streamline workflows and deliver exceptional results as part of our website development services in the USA.',
     applicability: 'Best for fast-moving startups, overloaded internal teams, and agencies that need senior-level Figma execution support.',
     features: ['File Cleanup', 'Prototype Logic', 'Component Optimization', 'Team Handoff'],
     tech: [

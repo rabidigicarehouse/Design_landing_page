@@ -22,6 +22,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [showCursor, setShowCursor] = useState(false);
+  const [footerFocus, setFooterFocus] = useState(false);
 
   useEffect(() => {
     const activateCursor = () => setShowCursor(window.matchMedia('(pointer: fine)').matches);
@@ -33,6 +34,25 @@ function App() {
 
     const timeoutId = window.setTimeout(activateCursor, 600);
     return () => window.clearTimeout(timeoutId);
+  }, []);
+
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    if (!footer) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setFooterFocus(entry.isIntersecting);
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(footer);
+
+    return () => {
+      observer.disconnect();
+      setFooterFocus(false);
+    };
   }, []);
 
   useEffect(() => {
@@ -91,7 +111,7 @@ function App() {
           trigger: panel,
           start: () => {
             const pid = panel.dataset.panelId;
-            return (pid === 'footer' || pid === 'our-work' || pid === 'contact' || pid === 'packages' || panel.offsetHeight <= window.innerHeight) ? 'top top' : 'bottom bottom';
+            return (pid === 'our-work' || pid === 'contact' || pid === 'packages' || pid === 'testimonials' || pid === 'cta' || panel.offsetHeight <= window.innerHeight) ? 'top top' : 'bottom bottom';
           },
           pin: true,
           pinSpacing: false,
@@ -152,11 +172,14 @@ function App() {
       <FloatingContact />
       
       <main className="flex flex-col items-center justify-center w-full">
+        <div
+          className={`pointer-events-none fixed inset-0 z-[15] transition-all duration-300 ${footerFocus ? 'bg-white/58 opacity-100 backdrop-blur-xl dark:bg-slate-950/58' : 'opacity-0 backdrop-blur-0'}`}
+        />
         {sections.map((section, index) => (
           <div
             key={section.id}
-            className={`w-full relative ${section.id === 'tech' ? '' : 'panel-shell'}`}
-            style={{ zIndex: index + 1 }}
+            className={`w-full relative ${section.id === 'tech' || section.id === 'footer' ? '' : 'panel-shell'}`}
+            style={{ zIndex: section.id === 'footer' ? 20 : index + 1 }}
             data-panel-id={section.id}
           >
             {section.node}

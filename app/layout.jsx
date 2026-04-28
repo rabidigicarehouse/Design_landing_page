@@ -1,19 +1,17 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'The Design Hands | DigiCareHouse UI/UX & Brand Agency',
+  title: 'Custom Graphic Design Services | Creative Designs',
   description:
-    'The Design Hands by DigiCareHouse is a premium UI/UX, branding, and digital design agency crafting bold web experiences, product design, and identity systems.',
+    'Get custom graphic design services for logos, branding, and social media. Creative, high-quality designs to grow your brand.',
   keywords: [
-    'The Design Hands',
-    'DigiCareHouse',
-    'UI UX agency',
-    'brand agency',
-    'landing page design',
-    'app design',
-    'web experiences',
-    'motion design',
-    'design systems',
+    'Custom Graphic Design Services',
+    'graphic design services',
+    'custom logo design',
+    'branding services',
+    'social media design',
+    'creative designs',
+    'high-quality graphic design',
   ],
   robots: {
     index: true,
@@ -23,9 +21,9 @@ export const metadata = {
   openGraph: {
     type: 'website',
     siteName: 'The Design Hands',
-    title: 'The Design Hands | DigiCareHouse UI/UX & Brand Agency',
+    title: 'Custom Graphic Design Services | Creative Designs',
     description:
-      'Premium UI/UX, brand identity, landing page, app, and web experience design systems by The Design Hands.',
+      'Get custom graphic design services for logos, branding, and social media. Creative, high-quality designs to grow your brand.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&q=80&w=1200',
@@ -35,9 +33,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Design Hands | DigiCareHouse UI/UX & Brand Agency',
+    title: 'Custom Graphic Design Services | Creative Designs',
     description:
-      'Premium UI/UX, branding, and interactive digital design by The Design Hands.',
+      'Get custom graphic design services for logos, branding, and social media. Creative, high-quality designs to grow your brand.',
     images: [
       'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&q=80&w=1200',
     ],
